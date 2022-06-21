@@ -6,6 +6,14 @@ class HomeController extends  Controller
 {
     function getHomePage(){
 
-        return view('layouts.base');
+        return view('home');
+    }
+
+    function getAboutUsPage(){
+        return View('about-us');
+    }
+
+    function getContactUsPage(){
+        return View('contact-us');
     }
 }

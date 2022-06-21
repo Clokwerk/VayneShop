@@ -26,3 +26,6 @@ Route::get('/',[HomeController::class,'getHomePage']);
 Route::get('/shop',[ShopController::class,'getShopPage']);
 Route::get('/cart',[CartController::class,'getCartPage']);
 Route::get('/checkout',[CheckoutController::class,'getCheckoutPage']);
+Route::get('/about-us',[HomeController::class,'getAboutUsPage']);
+Route::get('/contact-us',[HomeController::class,'getContactUsPage']);
+
