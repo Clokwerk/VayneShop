@@ -5,7 +5,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,4 +28,7 @@ Route::get('/cart',[CartController::class,'getCartPage']);
 Route::get('/checkout',[CheckoutController::class,'getCheckoutPage']);
 Route::get('/about-us',[HomeController::class,'getAboutUsPage']);
 Route::get('/contact-us',[HomeController::class,'getContactUsPage']);
-
+Route::get('/loginPage',[LoginController::class,'getLoginPage']);
+Route::post('/loginCustom',[LoginController::class,'authenticate'])->name('loginCustom');
+Route::get('/registerPage',[LoginController::class,'getRegisterPage']);
+Route::post('/registerCustom',[LoginController::class,'register'])->name('registerCustom');
