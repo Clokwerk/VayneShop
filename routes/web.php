@@ -23,8 +23,11 @@ Route::get('/', function () {
 
 Route::get('/',[HomeController::class,'getHomePage']);
 
-Route::get('/shop',[ShopController::class,'getShopPage']);
+Route::get('/shop',[ShopController::class,'getShopPage'])->name('shop');
 Route::get('/cart',[CartController::class,'getCartPage']);
+Route::get('/addToCart/{id}/{item_qty}',[CartController::class,'addToCart']);
+Route::get('/removeFromCart/{id}',[CartController::class,'removeFromCart']);
+Route::get('/updateCart/{id}/{item_qty}',[CartController::class,'updateCart']);
 Route::get('/checkout',[CheckoutController::class,'getCheckoutPage']);
 Route::get('/about-us',[HomeController::class,'getAboutUsPage']);
 Route::get('/contact-us',[HomeController::class,'getContactUsPage']);
@@ -32,3 +35,4 @@ Route::get('/loginPage',[LoginController::class,'getLoginPage']);
 Route::post('/loginCustom',[LoginController::class,'authenticate'])->name('loginCustom');
 Route::get('/registerPage',[LoginController::class,'getRegisterPage']);
 Route::post('/registerCustom',[LoginController::class,'register'])->name('registerCustom');
+Route::get('/productDetail/{id}',[ShopController::class,'getProductDetailPage']);
