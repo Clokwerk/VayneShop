@@ -23,8 +23,13 @@ Route::get('/', function () {
 
 Route::get('/',[HomeController::class,'getHomePage']);
 
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/cart',[CartController::class,'getCartPage']);
+});
+
+
 Route::get('/shop',[ShopController::class,'getShopPage'])->name('shop');
-Route::get('/cart',[CartController::class,'getCartPage']);
 Route::get('/addToCart/{id}/{item_qty}',[CartController::class,'addToCart']);
 Route::get('/removeFromCart/{id}',[CartController::class,'removeFromCart']);
 Route::get('/updateCart/{id}/{item_qty}',[CartController::class,'updateCart']);
