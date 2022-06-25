@@ -16,7 +16,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chosen.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/color-01.css')}}">
-    @livewireStyles
 </head>
 <body class="home-page home-01 ">
 
@@ -1488,7 +1487,7 @@
 <script src="{{asset('assets/js/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
 <script src="{{asset('assets/js/functions.js')}}"></script>
-@livewireScripts
+
 </body>
 </html>
 

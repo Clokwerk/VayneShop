@@ -31,8 +31,12 @@ Route::get('/updateCart/{id}/{item_qty}',[CartController::class,'updateCart']);
 Route::get('/checkout',[CheckoutController::class,'getCheckoutPage']);
 Route::get('/about-us',[HomeController::class,'getAboutUsPage']);
 Route::get('/contact-us',[HomeController::class,'getContactUsPage']);
-Route::get('/loginPage',[LoginController::class,'getLoginPage']);
+/*Route::get('/loginPage',[LoginController::class,'getLoginPage']);
 Route::post('/loginCustom',[LoginController::class,'authenticate'])->name('loginCustom');
 Route::get('/registerPage',[LoginController::class,'getRegisterPage']);
-Route::post('/registerCustom',[LoginController::class,'register'])->name('registerCustom');
+Route::post('/registerCustom',[LoginController::class,'register'])->name('registerCustom');*/
 Route::get('/productDetail/{id}',[ShopController::class,'getProductDetailPage']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
