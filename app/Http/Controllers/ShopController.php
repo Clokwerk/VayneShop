@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 class ShopController extends  Controller
 {
     function getShopPage()
     {
+        $currentUser = null;
+        if(!Auth::guest()){
+            $currentUser = Auth::user();
+        }
         $products =Product::all();
         $mostPopular = $products->random(3);
-        return View("shop")->with('products',$products)->with('mostPopular',$mostPopular);
+        return View("shop")->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser);
     }
 
     function getProductDetailPage($id){

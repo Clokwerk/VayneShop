@@ -20,7 +20,8 @@ class CartController extends  Controller
     }
     function getCartPage()
     {
-        return view('cart');
+        $currentUser = Auth::user();
+        return View('cart')->with('user',$currentUser);
     }
 
 

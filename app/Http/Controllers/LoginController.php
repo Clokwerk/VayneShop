@@ -31,6 +31,13 @@ class LoginController extends Controller
          return View('login-error');
     }
 
+    public function logout(Request $request){
+        if(!Auth::guest()){
+            Auth::logout();
+        }
+        return redirect('/');
+    }
+
     public function register(Request $request)
     {
         $email = $request->input('email');
