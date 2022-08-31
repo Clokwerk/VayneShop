@@ -4,10 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class CartController extends  Controller
 {
+
+    public function checkPermissions(){
+        $currentUser = Auth::user();
+        if($currentUser->userType == 'Customer'){
+            return true;
+        }else{
+            return false;
+        }
+    }
     function getCartPage()
     {
         return view('cart');

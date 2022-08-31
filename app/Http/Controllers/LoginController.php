@@ -17,14 +17,18 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
         echo $email." ".$password;
+        $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
 
-            return redirect()->intended('/');
+        if($user->email == $email && $user->password == $password && $user->userType == 'Customer'){
+            Auth::login($user);
+
+
+            return redirect()->intended();
         }
 
-        return View('login-error');
+
+         return View('login-error');
     }
 
     public function register(Request $request)
@@ -44,6 +48,8 @@ class LoginController extends Controller
 
         return redirect('/')->with('success', "Account successfully registered.");
     }
+
+
 
     public function getLoginPage(){
         return View('login');

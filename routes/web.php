@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,15 +25,19 @@ Route::get('/', function () {
 Route::get('/',[HomeController::class,'getHomePage']);
 
 Route::get('/shop',[ShopController::class,'getShopPage'])->name('shop');
-Route::get('/cart',[CartController::class,'getCartPage']);
+Route::get('/cart',[CartController::class,'getCartPage'])->middleware(['auth']);
 Route::get('/addToCart/{id}/{item_qty}',[CartController::class,'addToCart']);
 Route::get('/removeFromCart/{id}',[CartController::class,'removeFromCart']);
 Route::get('/updateCart/{id}/{item_qty}',[CartController::class,'updateCart']);
 Route::get('/checkout',[CheckoutController::class,'getCheckoutPage']);
 Route::get('/about-us',[HomeController::class,'getAboutUsPage']);
 Route::get('/contact-us',[HomeController::class,'getContactUsPage']);
-Route::get('/loginPage',[LoginController::class,'getLoginPage']);
+Route::get('/loginPage',[LoginController::class,'getLoginPage'])->name('loginPage');
+Route::get('/loginAdminPage',[AdminController::class,'getAdminLoginPage'])->name('adminLogin');
 Route::post('/loginCustom',[LoginController::class,'authenticate'])->name('loginCustom');
+Route::post('/loginAdminCustom',[AdminController::class,'authenticate'])->name('loginAdminCustom');
+Route::get('/adminPanel',[AdminController::class,'getAdminPanelPage'])->middleware(['authAdmin']);
 Route::get('/registerPage',[LoginController::class,'getRegisterPage']);
 Route::post('/registerCustom',[LoginController::class,'register'])->name('registerCustom');
 Route::get('/productDetail/{id}',[ShopController::class,'getProductDetailPage']);
+
