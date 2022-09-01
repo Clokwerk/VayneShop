@@ -225,45 +225,55 @@
 
                 <div class="row">
 
-                    <table>
-                        <tr>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Actions</th>
-                        </tr>
+                    <div class=" main-content-area">
+                        <div class="wrap-address-billing">
+                            <h3 class="box-title">Edit product</h3>
+                            <form action="/adminEditProduct" method="POST" name="frm-billing">
+
+                                <p class="row-in-form">
+                                    <label for="fname">Product ID<span>*</span></label>
+                                    <input id="fname" type="text" name="productID" value="{{$product->id}}" readonly="readonly">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="fname">Product name<span>*</span></label>
+                                    <input id="fname" type="text" name="productName" value="{{$product->name}}" placeholder="Acme cream">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="lname">Product description<span>*</span></label>
+                                    <input id="lname" type="text" name="productDescription" value="{{$product->description}}" placeholder="This is a 100% organic acme cream">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="productImage">Image URL</label>
+                                    <input id="productImage" type="text" name="productImage" value="{{$product->image}}" placeholder="https://5.imimg.com/data5/FU/TU/MY-39280229/kojic-acid-vitamin-c-cream-250x250.jpg">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="productPrice">Price</label>
+                                    <input id="productPrice" type="number" name="productPrice" value="{{$product->price}}" placeholder="100">
+                                </p>
+                                <p class="row-in-form">
+                                    @if($product->availability == true)
+                                    <label for="productAvailability">Available</label>
+                                    <input id="productAvailability" type="checkbox" name="productAvailability" value="Available" checked>
+                                    @else
+                                        <label for="productAvailability">Available</label>
+                                        <input id="productAvailability" type="checkbox" name="productAvailability" value="Available">
+                                    @endif
+                                </p>
+                                <input type="submit" value="Submit">
+                            </form>
+
+                        </div>
+
+                    </div>
+
+
+                </div><!--end main products area-->
 
 
 
-                        @foreach($products as $product)
-                            <tr>
-                                <td>{{$product->id}}</td>
-                                <td>{{$product->name}}</td>
-                                <td><a href="/adminEditProductPage/{{$product->id}}" title="Edit product">Edit product</a>
-                                    <a href="/adminDeleteProduct/{{$product->id}}" title="Delete product">Delete product</a>
-                                </td>
-                            </tr>
+            </div><!--end row-->
 
-
-
-
-
-                        @endforeach
-
-
-
-                    </table>
-                   <a title="New product" href="adminNewProductPage">New product</a>
-
-                </div>
-
-
-            </div><!--end main products area-->
-
-
-
-        </div><!--end row-->
-
-    </div><!--end container-->
+        </div><!--end container-->
 
 </main>
 <!--main area-->
@@ -281,6 +291,4 @@
 <script src="{{asset('assets/js/functions.js')}}"></script>
 </body>
 </html>
-
-
 

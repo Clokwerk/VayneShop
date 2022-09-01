@@ -12,8 +12,12 @@ class ShopController extends  Controller
         if(!Auth::guest()){
             $currentUser = Auth::user();
         }
-        $products =Product::all();
-        $mostPopular = $products->random(3);
+        $products = Product::all();
+        $mostPopular = [];
+        if(!empty($products)){
+            $mostPopular = $products->random(3);
+        }
+
         return View("shop")->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser);
     }
 

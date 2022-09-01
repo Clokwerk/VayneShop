@@ -38,6 +38,11 @@ Route::post('/loginCustom',[LoginController::class,'authenticate'])->name('login
 Route::get('/customerLogout',[LoginController::class,'logout'])->name('customerLogout');
 Route::post('/loginAdminCustom',[AdminController::class,'authenticate'])->name('loginAdminCustom');
 Route::get('/adminPanel',[AdminController::class,'getAdminPanelPage'])->middleware(['authAdmin']);
+Route::get('/adminNewProductPage',[AdminController::class,'getNewProductPage'])->middleware(['authAdmin']);
+Route::get('/adminEditProductPage/{id}',[AdminController::class,'getEditProductPage'])->middleware(['authAdmin']);
+Route::get('/adminDeleteProduct/{id}',[AdminController::class,'deleteProduct'])->middleware(['authAdmin']);
+Route::post('/adminAddProduct',[AdminController::class,'addProduct'])->name('adminAddProduct')->middleware(['authAdmin']);
+Route::post('/adminEditProduct',[AdminController::class,'editProduct'])->name('adminEditProduct')->middleware(['authAdmin']);
 Route::get('/registerPage',[LoginController::class,'getRegisterPage']);
 Route::post('/registerCustom',[LoginController::class,'register'])->name('registerCustom');
 Route::get('/productDetail/{id}',[ShopController::class,'getProductDetailPage']);
