@@ -46,4 +46,5 @@ Route::post('/adminEditProduct',[AdminController::class,'editProduct'])->name('a
 Route::get('/registerPage',[LoginController::class,'getRegisterPage']);
 Route::post('/registerCustom',[LoginController::class,'register'])->name('registerCustom');
 Route::get('/productDetail/{id}',[ShopController::class,'getProductDetailPage']);
+Route::get('/primer',[HomeController::class,'primer']);
 
