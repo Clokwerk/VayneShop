@@ -21,4 +21,11 @@ class HomeController extends  Controller
     function getContactUsPage(){
         return View('contact-us');
     }
+
+    function primer(){
+        if(!Auth::guest()){
+            $currentUser = Auth::user();
+        }
+        return View('mpage')->with('user',$currentUser);;
+    }
 }
