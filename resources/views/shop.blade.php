@@ -17,13 +17,13 @@
 
                 <div class="banner-shop">
                     <a href="#" class="banner-link">
-                        <figure><img src="{{asset('assets/images/shop-banner.jpg')}}" alt=""></figure>
+                        <figure><img src="https://www.beautyandmakeup.co/wp-content/uploads/2020/12/orgonic-cosmetics.jpg"  ></figure>
                     </a>
                 </div>
 
                 <div class="wrap-shop-control">
 
-                    <h1 class="shop-title">Digital & Electronics</h1>
+                    <h1 class="shop-title">Products</h1>
 
                     <div class="wrap-right">
 
