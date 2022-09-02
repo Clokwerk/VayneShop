@@ -17,8 +17,9 @@ class ShopController extends  Controller
         if(!empty($products)){
             $mostPopular = $products->random(3);
         }
-
-        return View("shop")->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser);
+        $page='shop';
+        return View("mpage")->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)
+            ->with('page',$page);
     }
 
     function getProductDetailPage($id){
