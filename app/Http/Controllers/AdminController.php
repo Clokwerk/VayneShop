@@ -83,6 +83,7 @@ class AdminController extends Controller
         $productName = $request->input('productName');
         $productImage = $request->input('productImage');
         $productPrice = $request->input('productPrice');
+        $productCategory = $request->input('category');
         $productAvailability = $request->input('productAvailability');
         $productDescription = $request->input('productDescription');
 
@@ -102,6 +103,7 @@ class AdminController extends Controller
         Product::create([
             'name' => $productName,
             'price' => $productPrice,
+            'category'=>$productCategory,
             'description' => $productDescription,
             'image' => $productImage,
             'availability' => $availability,
@@ -115,6 +117,7 @@ class AdminController extends Controller
         $productID = $request->input('productID');
         $productName = $request->input('productName');
         $productImage = $request->input('productImage');
+        $productCategory = $request->input('category');
         $productPrice = $request->input('productPrice');
         $productAvailability = $request->input('productAvailability');
         $productDescription = $request->input('productDescription');
@@ -123,6 +126,7 @@ class AdminController extends Controller
             'productName' => ['required'],
             'productImage' => ['required'],
             'productPrice' => ['required'],
+             'category' => ['required'],
             //'productAvailability' => ['required'],
             'productDescription' => ['required'],
             'productID' => ['required']
@@ -139,6 +143,7 @@ class AdminController extends Controller
         $product->name = $productName;
         $product->image = $productImage;
         $product->price = $productPrice;
+        $product->category=$productCategory;
         $product->availability = $availability;
         $product->description = $productDescription;
         $product->save();

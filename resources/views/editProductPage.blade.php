@@ -250,6 +250,11 @@
                                     <label for="productPrice">Price</label>
                                     <input id="productPrice" type="number" name="productPrice" value="{{$product->price}}" placeholder="100">
                                 </p>
+
+                                <p class="row-in-form">
+                                    <label for="llname">Category<span>*</span></label>
+                                    <input id="llname" type="text" name="category" value="{{$product->category}}" placeholder="Face">
+                                </p>
                                 <p class="row-in-form">
                                     @if($product->availability == true)
                                     <label for="productAvailability">Available</label>

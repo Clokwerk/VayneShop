@@ -30,9 +30,6 @@
                         <div class="sort-item orderby ">
                             <select name="orderby" class="use-chosen" >
                                 <option value="menu_order" selected="selected">Default sorting</option>
-                                <option value="popularity">Sort by popularity</option>
-                                <option value="rating">Sort by average rating</option>
-                                <option value="date">Sort by newness</option>
                                 <option value="price">Sort by price: low to high</option>
                                 <option value="price-desc">Sort by price: high to low</option>
                             </select>
@@ -50,46 +47,49 @@
                             </select>
                         </div>
 
-                        <div class="change-display-mode">
-                            <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-                            <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
-                        </div>
 
                     </div>
 
                 </div><!--end wrap shop control-->
+                <br>
 
                 <div class="row">
 
-                    <ul class="product-list grid-products equal-container">
 
 
 
 
 
-                        <br>
+
 
                             <div class="container">
                                 <div class="row">
 
                                     @foreach($products as $product)
-                                    <div class="col-lg-4 col-md-4">
+                                    <div class="col-lg3 col-md-3">
 
 
 
-                                        <div class="card border border-secondary"  style="width: 18rem;">
-                                            <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
+                                        <div class="card border border-secondary ">
+                                            <img style="height: 250px;" class="card-img-top img-fluid" src="{{$product->image}}" alt="Card image cap">
+
+                                            <hr>
                                             <div class="card-body">
                                                 <h5 class="card-title">{{$product->name}}</h5>
                                             </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Price:{{$product->price}}</li>
+                                            <hr>
+                                            <div class="card-body ">
+                                                <h4 class="card-title ">Price:  {{$product->price}} den.</h4>
 
-                                            </ul>
-                                            <div class="card-body">
-                                                <a href="#" class="card-link">Add To Cart</a>
                                             </div>
+                                            <hr>
+                                            <form action="addToCart/{{$product->id}}/1">
+                                            <div class="card-body  text-center">
+                                                <button class="btn btn-danger" type="submit">Add To Cart</button>
+                                            </div>
+                                            </form>
                                         </div>
+
 
 
 
@@ -107,7 +107,7 @@
 
 
 
-                    </ul>
+
 
                 </div>
 

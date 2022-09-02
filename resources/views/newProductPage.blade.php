@@ -249,6 +249,11 @@
                                     <label for="productAvailability">Available</label>
                                     <input id="productAvailability" type="checkbox" name="productAvailability" value="Available">
                                 </p>
+
+                                <p class="row-in-form">
+                                    <label for="llname">Category<span>*</span></label>
+                                    <input id="llname" type="text" name="category" value="" placeholder="Face">
+                                </p>
                                 <input type="submit" value="Submit">
                             </form>
 

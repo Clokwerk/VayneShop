@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="wrap-icon right-section">
-                        <div class="wrap-icon-section minicart">
+                        <div style="width: 130px" class="wrap-icon-section minicart">
                             <a href="#" class="link-direction">
                                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                 <div class="left-info">
@@ -78,6 +78,21 @@
                                 </div>
                             </a>
                         </div>
+
+
+                            <a href="#" class="link-direction">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="link-direction">
+                                <p>Log out</p>
+                            </a>
+
+
+
+
                         <div class="wrap-icon-section show-up-after-1024">
                             <a href="#" class="mobile-navigation">
                                 <span></span>
@@ -95,26 +110,41 @@
 
                 <div class="primary-nav-section">
                     <div class="container">
-                        <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
-                            <li class="menu-item home-icon">
-                                <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="/about-us" class="link-term mercado-item-title">About Us</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="/shop" class="link-term mercado-item-title">Products</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="/cart" class="link-term mercado-item-title">Cart</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="/checkout" class="link-term mercado-item-title">Checkout</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
-                            </li>
-                        </ul>
+
+                            <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
+                                <li class="menu-item home-icon">
+                                    <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/about-us" class="link-term mercado-item-title">About Us</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/shop" class="link-term mercado-item-title">Products</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/cart" class="link-term mercado-item-title">Cart</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/checkout" class="link-term mercado-item-title">Checkout</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
+                                </li>
+                            </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -161,6 +191,11 @@
     </div>
     <!-- Copyright -->
 </footer>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script src="{{asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 <script src="{{asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
