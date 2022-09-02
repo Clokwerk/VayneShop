@@ -15,11 +15,11 @@ class HomeController extends  Controller
     }
 
     function getAboutUsPage(){
-        return View('about-us');
+        return View('mpage')->with('page','about-us');
     }
 
     function getContactUsPage(){
-        return View('contact-us');
+        return View('mpage')->with('page','contact-us');
     }
 
     function primer(){
