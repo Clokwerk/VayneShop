@@ -17,7 +17,7 @@
 
                 <div class="banner-shop">
                     <a href="#" class="banner-link">
-                        <figure><img src="https://www.beautyandmakeup.co/wp-content/uploads/2020/12/orgonic-cosmetics.jpg"  ></figure>
+                        <figure><img style="height: 400px; width: 1164px;" src="https://www.beautyandmakeup.co/wp-content/uploads/2020/12/orgonic-cosmetics.jpg"  ></figure>
                     </a>
                 </div>
 
@@ -64,22 +64,47 @@
                     <ul class="product-list grid-products equal-container">
 
 
-                        @foreach($products as $product)
-                        <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-                            <div class="product product-style-3 equal-elem ">
-                                <div class="product-thumnail">
-                                    <a href="/productDetail/{{$product->id}}" title="{{$product->name}}">
-                                        <figure><img src="{{$product->image}}" alt="{{$product->name}}"></figure>
-                                    </a>
+
+
+
+                        <br>
+
+                            <div class="container">
+                                <div class="row">
+
+                                    @foreach($products as $product)
+                                    <div class="col-lg-4 col-md-4">
+
+
+
+                                        <div class="card border border-secondary"  style="width: 18rem;">
+                                            <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{$product->name}}</h5>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Price:{{$product->price}}</li>
+
+                                            </ul>
+                                            <div class="card-body">
+                                                <a href="#" class="card-link">Add To Cart</a>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+
+                                    @endforeach
                                 </div>
-                                <div class="product-info">
-                                    <a href="#" class="product-name"><span>{{$product->name}}</span></a>
-                                    <div class="wrap-price"><span class="product-price">${{$product->price}}</span></div>
-                                    <a href="/addToCart/{{$product->id}}/1" class="btn add-to-cart">Add To Cart</a>
-                                </div>
+
                             </div>
-                        </li>
-                        @endforeach
+
+
+
+
+
 
 
                     </ul>
