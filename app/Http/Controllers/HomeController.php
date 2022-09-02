@@ -23,6 +23,7 @@ class HomeController extends  Controller
     }
 
     function primer(){
+        $currentUser = null;
         if(!Auth::guest()){
             $currentUser = Auth::user();
         }
