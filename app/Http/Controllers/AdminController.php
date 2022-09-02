@@ -48,7 +48,7 @@ class AdminController extends Controller
         if($this->checkPermissions()) {
             $currentUser = Auth::user();
             $products = Product::all();
-            return View('adminPanel')->with('user',$currentUser)->with('products',$products);
+            return View('mpage')->with('user',$currentUser)->with('products',$products)->with('page','adminPanel');
         }else{
             return $this->getAdminLoginPage();
         }
@@ -62,7 +62,7 @@ class AdminController extends Controller
 
         if($this->checkPermissions()) {
             $currentUser = Auth::user();
-            return View('newProductPage')->with('user',$currentUser);
+            return View('mpage')->with('user',$currentUser)->with('page','newProductPage');
         }else{
             return $this->getAdminLoginPage();
         }
@@ -72,7 +72,7 @@ class AdminController extends Controller
         if($this->checkPermissions()) {
             $currentUser = Auth::user();
             $product = Product::find($id);
-            return View('editProductPage')->with('user',$currentUser)->with('product',$product);
+            return View('mpage')->with('user',$currentUser)->with('product',$product)->with('page','editProductPage');
         }else{
             return $this->getAdminLoginPage();
         }

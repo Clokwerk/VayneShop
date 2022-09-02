@@ -88,12 +88,18 @@
                                                 <button class="btn btn-danger" type="submit">Add To Cart</button>
                                             </div>
                                             </form>
+
+                                            <form action="/productDetail/{{$product->id}}">
+                                                <div class="card-body  text-center">
+                                                    <button class="btn btn-info" type="submit">Details</button>
+                                                </div>
+                                            </form>
                                         </div>
 
 
 
 
-
+                                    
                                     </div>
 
                                     @endforeach

@@ -154,12 +154,9 @@
 
 @include($page)
 
-<footer style="background-color: rgba(0, 0, 0, 0.05);" class="bg-dark border-top text-center text-lg-start   ">
-
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+<footer  class="bg-light border-top text-center text-lg-start   ">
 
 
-    </div>
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->
