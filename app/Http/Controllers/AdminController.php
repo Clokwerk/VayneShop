@@ -48,7 +48,7 @@ class AdminController extends Controller
         if($this->checkPermissions()) {
             $currentUser = Auth::user();
             $products = Product::all();
-            return View('adminPanel')->with('user',$currentUser)->with('products',$products);
+            return View('mpage')->with('user',$currentUser)->with('products',$products)->with('page','adminPanel');
         }else{
             return $this->getAdminLoginPage();
         }
@@ -62,7 +62,7 @@ class AdminController extends Controller
 
         if($this->checkPermissions()) {
             $currentUser = Auth::user();
-            return View('newProductPage')->with('user',$currentUser);
+            return View('mpage')->with('user',$currentUser)->with('page','newProductPage');
         }else{
             return $this->getAdminLoginPage();
         }
@@ -72,7 +72,7 @@ class AdminController extends Controller
         if($this->checkPermissions()) {
             $currentUser = Auth::user();
             $product = Product::find($id);
-            return View('editProductPage')->with('user',$currentUser)->with('product',$product);
+            return View('mpage')->with('user',$currentUser)->with('product',$product)->with('page','editProductPage');
         }else{
             return $this->getAdminLoginPage();
         }
@@ -83,6 +83,7 @@ class AdminController extends Controller
         $productName = $request->input('productName');
         $productImage = $request->input('productImage');
         $productPrice = $request->input('productPrice');
+        $productCategory = $request->input('category');
         $productAvailability = $request->input('productAvailability');
         $productDescription = $request->input('productDescription');
 
@@ -102,6 +103,7 @@ class AdminController extends Controller
         Product::create([
             'name' => $productName,
             'price' => $productPrice,
+            'category'=>$productCategory,
             'description' => $productDescription,
             'image' => $productImage,
             'availability' => $availability,
@@ -115,6 +117,7 @@ class AdminController extends Controller
         $productID = $request->input('productID');
         $productName = $request->input('productName');
         $productImage = $request->input('productImage');
+        $productCategory = $request->input('category');
         $productPrice = $request->input('productPrice');
         $productAvailability = $request->input('productAvailability');
         $productDescription = $request->input('productDescription');
@@ -123,6 +126,7 @@ class AdminController extends Controller
             'productName' => ['required'],
             'productImage' => ['required'],
             'productPrice' => ['required'],
+             'category' => ['required'],
             //'productAvailability' => ['required'],
             'productDescription' => ['required'],
             'productID' => ['required']
@@ -139,6 +143,7 @@ class AdminController extends Controller
         $product->name = $productName;
         $product->image = $productImage;
         $product->price = $productPrice;
+        $product->category=$productCategory;
         $product->availability = $availability;
         $product->description = $productDescription;
         $product->save();
