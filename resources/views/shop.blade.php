@@ -4,6 +4,7 @@
 <main id="main" class="main-site center-sidebar">
 <br>
     <br>
+    <hr>
     <div class="container">
 
         <div class="wrap-breadcrumb">
