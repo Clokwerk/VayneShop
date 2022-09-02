@@ -46,12 +46,12 @@
                                      data-map-style="2"
                                      data-saturation="-100"
                                      data-modify-coloring="false"
-                                     data-title_maps="Kute themes"
-                                     data-phone="088-465 9965 02"
-                                     data-email="kutethemes@gmail.com"
-                                     data-address="Z115 TP. Thai Nguyen"
-                                     data-longitude="-0.120850"
-                                     data-latitude="51.508742"
+                                     data-title_maps="Skopje, Macedonia"
+                                     data-phone="075 489 321"
+                                     data-email="vaynecosmetics@gmail.com"
+                                     data-address="Boulevard Partizanski Odredi 15A, Skopje 1000, Macedonia"
+                                     data-longitude="21.424871"
+                                     data-latitude="41.997954"
                                      data-pin-icon=""
                                      data-zoom="16"
                                      data-map-type="ROADMAP"
@@ -65,7 +65,7 @@
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                     <div class="right-info">
                                         <b>Email</b>
-                                        <p>Support1@Mercado.com</p>
+                                        <p>vaynecosmetics@gmail.com</p>
                                     </div>
                                 </div>
 
@@ -73,17 +73,10 @@
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                     <div class="right-info">
                                         <b>Phone</b>
-                                        <p>0123-465-789-111</p>
+                                        <p>075 489 321</p>
                                     </div>
                                 </div>
-
-                                <div class="icon-box-item">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <div class="right-info">
-                                        <b>Mail Office</b>
-                                        <p>Sed ut perspiciatis unde omnis<br />Street Name, Los Angeles</p>
-                                    </div>
-                                </div>
+                                
 
                             </div>
                         </div>
