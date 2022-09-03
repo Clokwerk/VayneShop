@@ -11,7 +11,7 @@ class HomeController extends  Controller
         if(!Auth::guest()){
             $currentUser = Auth::user();
         }
-        return view('home')->with('user',$currentUser);
+        return view('mpage')->with('user',$currentUser)->with('page','home');;
     }
 
     function getAboutUsPage(){

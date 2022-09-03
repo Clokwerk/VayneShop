@@ -59,10 +59,10 @@ class LoginController extends Controller
 
 
     public function getLoginPage(){
-        return View('login');
+        return View('mpage')->with('page','login');
     }
 
     public function getRegisterPage(){
-        return View('register');
+        return View('mpage')->with('page','register');
     }
 }

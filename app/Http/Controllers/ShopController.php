@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 class ShopController extends  Controller
 {
@@ -25,8 +26,27 @@ class ShopController extends  Controller
     function getProductDetailPage($id){
 
        if( $product = Product::find($id)){
-           echo $product->value('name');
-           return View('detail',(['name'=>$product->name,'image'=>$product->image,'price'=>$product->price,'description'=>$product->description,'availability'=>$product->availability]));
+           $products=DB::select('select * from products u where u.category = :cat', ['cat' => $product->category]);
+$sameCateogry=array();
+           if($products!=null)
+           {
+
+
+                   foreach ($products as $p) {
+                       if($p->id!=$product->id) {
+                           array_push($sameCateogry, $p);
+                       }
+                       if(count($sameCateogry)>=3) {
+                           break;
+                       }
+                   }
+
+
+
+           }
+
+           return View('mpage',(['name'=>$product->name,'image'=>$product->image,'price'=>$product->price,'description'=>$product->description,'availability'=>$product->availability]))
+               ->with('sameCategory',$sameCateogry)->with('page','detail');
        };
         return Redirect::route('shop');
 
