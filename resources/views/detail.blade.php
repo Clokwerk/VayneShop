@@ -11,15 +11,16 @@
                 <li class="item-link"><span>detail</span></li>
             </ul>
         </div>
-        <div class="row">
+        <div class="row border border-dark border-1">
 
-            <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
+            <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area  ">
                 <div class="wrap-product-detail">
                     <div class="detail-media">
                         <div class="product-gallery">
                             <img class="" src="{{$image}}">
                         </div>
                     </div>
+                    
                     <div class="detail-info">
 
                         <h1 class="product-name">{{$name}}</h1>
@@ -61,7 +62,7 @@
             </div><!--end main products area-->
 
 
-
+<br>
     <div class="container">
         <div class="row">
             <div style="color:white; font-family: Roboto; background: red; height: 45px; font-size: 25px;" class="col-12 "> RELATED PRODUCTS</div>
