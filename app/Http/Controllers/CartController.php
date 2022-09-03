@@ -72,6 +72,8 @@ class CartController extends  Controller
             "price" => $product->price,
             "item_img" => $product->item_img
         ];
+
+
         session()->put('basket', $basket);
         return redirect()->back()->with('success', 'Item added to basket successfully!');
     }
