@@ -17,7 +17,7 @@ class HomeController extends  Controller
         if(!empty($products)){
             $mostPopular = $products->random(3);
         }
-        return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)->with('page','home');;
+        return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)->with('page','home');
     }
 
     function getAboutUsPage(){
