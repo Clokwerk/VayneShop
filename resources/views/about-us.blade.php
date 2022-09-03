@@ -20,7 +20,9 @@
             <p class="txt-content">Meet our latest product technology in skincare and color cosmetics for 2021-2022.  This library includes our best sellers, formulation developments and revolutionary packaging for e-commerce and retail brands in medium, small or large scale.</p>
         </div>
 
-        <img src="https://images.everydayhealth.com/images/what-are-natural-skin-care-products-alt-1440x810.jpg" style="display: block; margin-left: auto; margin-right: auto; height: 550px; width: 1164px;"/>
+
+       <figure><img src="assets/images/slika1.jpg" alt="" style="display: block; margin-left: auto; margin-right: auto; height: 550px; width: 1164px;"></figure>
+
 
         <div class="aboutus-info style-center ">
             <span class="sub-title" style="font-family: 'Georgia', sans-serif; color: red; font-size: xxx-large">REASONS WHY WE ARE THE BEST</span>
@@ -61,8 +63,8 @@
                 </div>
 
                 <div class="aboutus-info style-small-left">
-                    <img src="https://i0.wp.com/beautybusinessjournal.com/wp-content/uploads/2019/10/Natural-Cosmetics-Compressed-e1572519538673-1.jpg" style="height: 180px; width: 380px; margin-top: -30px">
-                </div>
+                    <figure><img src="assets/images/slika3.jpg" alt="" style="height: 180px; width: 380px; margin-top: -30px"></figure>
+                   </div>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
