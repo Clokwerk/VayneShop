@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends  Controller
@@ -11,7 +12,12 @@ class HomeController extends  Controller
         if(!Auth::guest()){
             $currentUser = Auth::user();
         }
-        return view('mpage')->with('user',$currentUser)->with('page','home');;
+        $products = Product::all();
+        $mostPopular = [];
+        if(!empty($products)){
+            $mostPopular = $products->random(3);
+        }
+        return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)->with('page','home');;
     }
 
     function getAboutUsPage(){

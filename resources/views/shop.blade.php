@@ -2,10 +2,7 @@
 
 <!--main area-->
 <main id="main" class="main-site center-sidebar">
-<br>
-    <br>
-    <hr>
-    <hr>
+
     <div class="container">
 
         <div class="wrap-breadcrumb">
