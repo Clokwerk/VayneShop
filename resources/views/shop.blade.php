@@ -27,25 +27,26 @@
 
                     <div class="wrap-right">
 
+                        <form action="/shop">
                         <div class="sort-item orderby ">
-                            <select name="orderby" class="use-chosen" >
-                                <option value="menu_order" selected="selected">Default sorting</option>
-                                <option value="price">Sort by price: low to high</option>
-                                <option value="price-desc">Sort by price: high to low</option>
+                            <select name="sort" class="use-chosen" >
+                                <option href="" value="default" selected="selected">Default sorting</option>
+                                <option value="asc">Sort by price: low to high</option>
+                                <option value="desc">Sort by price: high to low</option>
                             </select>
                         </div>
 
                         <div class="sort-item product-per-page">
-                            <select name="post-per-page" class="use-chosen" >
-                                <option value="12" selected="selected">12 per page</option>
-                                <option value="16">16 per page</option>
-                                <option value="18">18 per page</option>
-                                <option value="21">21 per page</option>
-                                <option value="24">24 per page</option>
-                                <option value="30">30 per page</option>
-                                <option value="32">32 per page</option>
+                            <select name="category" class="use-chosen" >
+                                <option value="" selected="selected"></option>
+                                <option value="Face">Face</option>
+                                <option value="Body">Body</option>
                             </select>
+
+                            <button type="submit" class="btn btn-primary">Search</button>
                         </div>
+
+                        </form>
 
 
                     </div>
@@ -70,8 +71,8 @@
 
 
 
-                                        <div class="card border border-secondary ">
-                                            <img style="height: 250px;" class="card-img-top img-fluid" src="{{$product->image}}" alt="Card image cap">
+                                        <div class="card border border-secondary rounded ">
+                                            <img style="height: 250px;" class="card-img-top img-fluid rounded" src="{{$product->image}}" alt="Card image cap">
 
                                             <hr>
                                             <div class="card-body">
@@ -149,7 +150,7 @@
                                             </div>
                                             <div class="product-info">
                                                 <a href="#" class="product-name"><span>{{$product->name}}</span></a>
-                                                <div class="wrap-price"><span class="product-price">{{$product->price}}</span></div>
+                                                <div class="wrap-price"><span class="product-price">{{$product->price}} den.</span></div>
                                             </div>
                                         </div>
                                     </div>
