@@ -55,7 +55,7 @@ class AdminController extends Controller
     }
 
     public function getAdminLoginPage(){
-        return View('adminLogin');
+        return View('mpage')->with('page','adminLogin');
     }
 
     public function getNewProductPage(){
