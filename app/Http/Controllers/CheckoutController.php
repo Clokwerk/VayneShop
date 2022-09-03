@@ -6,7 +6,7 @@ class CheckoutController extends  Controller
 {
     function getCheckoutPage()
     {
-        return view('checkout');
+        return view('mpage')->with('page','checkout');
     }
 
 }
