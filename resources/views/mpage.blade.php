@@ -50,7 +50,12 @@
                             <a href="/cart" class="link-direction">
                                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                 <div class="left-info">
-                                    <span class="index">4 items</span>
+
+                                    @if(session('basket'))
+                                    <span class="index">{{ count(Session::get('basket'))}} items</span>
+                                    @else
+                                        <span class="index">0 items</span>
+                                    @endif
                                     <span class="title">CART</span>
                                 </div>
                             </a>
