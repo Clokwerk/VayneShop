@@ -21,9 +21,14 @@ class CartController extends  Controller
     function getCartPage()
     {
         $currentUser = Auth::user();
-        return View('mpage')->with('user',$currentUser)->
-            with('page','cart');
+        $products = Product::all();
+        $mostPopular = [];
+        if(!empty($products)){
+            $mostPopular = $products->random(3);
+        }
+        return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)->with('page','cart');
     }
+
 
 
     public function removeFromCart(Request $request)

@@ -76,7 +76,7 @@
                                         <p>075 489 321</p>
                                     </div>
                                 </div>
-                                
+
 
                             </div>
                         </div>
@@ -101,6 +101,6 @@
 <script src="{{asset('assets/js/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
 <script src="{{asset('assets/js/functions.js')}}"></script>
-@livewireScripts
+
 </body>
 </html>
