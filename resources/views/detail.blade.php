@@ -62,7 +62,7 @@
 
 
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div style="color:white; font-family: Roboto; background: red; height: 45px; font-size: 25px;" class="col-12 "> RELATED PRODUCTS</div>
         </div>
