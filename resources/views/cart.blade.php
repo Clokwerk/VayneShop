@@ -4,12 +4,8 @@
 
     <div class="container">
 
-        <div class="wrap-breadcrumb">
-            <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
-                <li class="item-link"><span>login</span></li>
-            </ul>
-        </div>
+        <br>
+        <br>
         <div class=" main-content-area">
 
             <div class="wrap-iten-in-cart">

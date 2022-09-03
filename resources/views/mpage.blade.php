@@ -51,12 +51,15 @@
                                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                 <div class="left-info">
 
+                                    @if (!Auth::guest())
                                     @if(session('basket'))
                                     <span class="index">{{ count(Session::get('basket'))}} items</span>
                                     @else
                                         <span class="index">0 items</span>
                                     @endif
                                     <span class="title">CART</span>
+                                    @endif
+
                                 </div>
                             </a>
                         </div>
@@ -85,7 +88,7 @@
                 <div class="primary-nav-section">
                     <div class="container">
 
-                            <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
+                            <ul  class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
                                 <li class="menu-item home-icon">
                                     <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                                 </li>
