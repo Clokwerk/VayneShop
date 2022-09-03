@@ -129,34 +129,48 @@
                     </ul>
                     <p class="result-count">Showing 1-8 of 12 result</p>
                 </div>
-            </div><!--end main products area-->
 
-
+                <br>
+                <br>
+                <br>
+                <br>
 
 
 
                 <div class="widget mercado-widget widget-product">
                     <h2 class="widget-title">Popular Products</h2>
                     <div class="widget-content">
-                        <ul class="products">
-                            @foreach($mostPopular as $product )
-                            <li class="product-item">
-                                <div class="product product-widget-style">
-                                    <div class="thumbnnail">
-                                        <a href="/productDetail/{{$product->id}}" title="{{$product->name}}">
-                                            <figure><img src="{{$product->image}}" alt=""></figure>
-                                        </a>
+                        <div class="container">
+                            <div  class="products row">
+                                @foreach($mostPopular as $product )
+                                    <div align="center" class="product-item col-4">
+                                        <div class="product product-widget-style">
+                                            <div class="thumbnnail">
+                                                <a href="/productDetail/{{$product->id}}" title="{{$product->name}}">
+                                                    <figure><img src="{{$product->image}}" alt=""></figure>
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="#" class="product-name"><span>{{$product->name}}</span></a>
+                                                <div class="wrap-price"><span class="product-price">{{$product->price}}</span></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="product-info">
-                                        <a href="#" class="product-name"><span>{{$product->name}}</span></a>
-                                        <div class="wrap-price"><span class="product-price">{{$product->price}}</span></div>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-                        </ul>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div><!-- brand widget-->
+
+            </div><!--end main products area-->
+
+
+
+
+
+
+            <br>
+            <br>
 
             </div><!--end sitebar-->
 
