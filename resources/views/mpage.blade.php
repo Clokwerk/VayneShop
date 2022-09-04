@@ -30,10 +30,10 @@
 <header id="header" class="header header-style-1">
 
             <div class="container">
-                <div class="mid-section main-info-area">
+                <div class="mid-section main-info-area" style="height:66px">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="index.html" class="link-to-home"><img src="{{asset('assets/images/Screenshot 2022-09-02 024807.png')}}" alt="mercado"></a>
+                        <a href="index.html" class="link-to-home"><img style="height: 50px;" src="{{asset('assets/images/Screenshot 2022-09-02 024807.png')}}" alt="mercado"></a>
                     </div>
 
                     <div class="wrap-search center-section">
@@ -51,12 +51,15 @@
                                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                 <div class="left-info">
 
+                                    @if (!Auth::guest())
                                     @if(session('basket'))
                                     <span class="index">{{ count(Session::get('basket'))}} items</span>
                                     @else
                                         <span class="index">0 items</span>
                                     @endif
                                     <span class="title">CART</span>
+                                    @endif
+
                                 </div>
                             </a>
                         </div>
@@ -85,46 +88,59 @@
                 <div class="primary-nav-section">
                     <div class="container">
 
-                            <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
-                                <li class="menu-item home-icon">
+                            <ul style="height: 40px" class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
+                                <li style="height: 40px" class="menu-item home-icon">
                                     <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                                 </li>
-                                <li class="menu-item">
+                                <li style="height: 40px" class="menu-item">
                                     <a href="/about-us" class="link-term mercado-item-title">About Us</a>
                                 </li>
-                                <li class="menu-item">
+                                <li  style="height: 40px" class="menu-item">
                                     <a href="/shop" class="link-term mercado-item-title">Products</a>
                                 </li>
-                                <li class="menu-item">
+                                <li style="height: 40px" class="menu-item">
                                     <a href="/cart" class="link-term mercado-item-title">Cart</a>
                                 </li>
-                                <li class="menu-item">
+                                <li style="height: 40px" class="menu-item">
                                     <a href="/checkout" class="link-term mercado-item-title">Checkout</a>
                                 </li>
-                                <li class="menu-item">
+                                <li style="height: 40px"class="menu-item">
                                     <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
                                 </li>
 
+                                <?php $currentUser = Auth::user();
+                                ?>
+
+                                @if ( !Auth::guest() && $currentUser->userType == 'Administrator')
+                                    <li style="height: 40px; background: orange"class="menu-item">
+                                        <a href="/adminPanel" class="link-term mercado-item-title">Admin Panel</a>
+                                    </li>
+                                    <li style="height: 40px ;background: orange"class="menu-item">
+                                        <a href="/poraki" class="link-term mercado-item-title">Messages</a>
+                                    </li>
+                                @endif
+
 
                                 <li>
-                                    <div class="container">
+                                    <div style="height: 40px" class="container">
                                         <div class="row">
-                                            <div style="width: 310px;" class="col-4">
+
+                                            @if (!Auth::guest() && $currentUser->userType != 'Administrator')
+                                            <div style="width: 300px;" class="col-4">
 
                                             </div>
-                                            <div class="col-4">
+                                            @else
+                                                <div style="width: 170px;" class="col-4">
 
-                                            </div>
-                                            <div class="col-4">
-
-                                            </div>
+                                                </div>
+                                            @endif
 
                                         </div>
 
                                     </div>
                                 </li>
                                 @if (!Auth::guest())
-                                <li class="menu-item text-right">
+                                <li style="height: 40px" class="menu-item text-right">
                                     <a href="#" class="link-direction">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20px" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
@@ -132,7 +148,7 @@
                                     </a>
                                 </li>
 
-                                <li class="menu-item text-right ">
+                                <li style="height: 40px" class="menu-item text-right ">
                                     <a href="/customerLogout" class="link-direction">
                                         <p>Log Out</p>
                                     </a>
@@ -140,13 +156,13 @@
                                 @endif
 
                                 @if (Auth::guest())
-                                <li class="menu-item text-right ">
+                                <li style="height: 40px" class="menu-item text-right ">
                                     <a href="/loginPage" class="link-direction">
                                         <p>Log In</p>
                                     </a>
                                 </li>
 
-                                <li class="menu-item text-right ">
+                                <li style="height: 40px" class="menu-item text-right ">
                                     <a href="/registerPage" class="link-direction">
                                         <p>Register</p>
                                     </a>

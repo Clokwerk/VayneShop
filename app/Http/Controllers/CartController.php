@@ -23,8 +23,12 @@ class CartController extends  Controller
         $currentUser = Auth::user();
         $products = Product::all();
         $mostPopular = [];
-        if(!empty($products)){
-            $mostPopular = $products->random(3);
+        if(!is_null(Product::first())){
+            if(Product::count() < 3){
+                $mostPopular = $products;
+            }else {
+                $mostPopular = $products->random(3);
+            }
         }
         return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)->with('page','cart');
     }
@@ -39,11 +43,19 @@ class CartController extends  Controller
                 unset($basket[$request->id]);
                 session()->put('basket', $basket);
             }
-            session()->flash('success', 'Item removed successfully');
+             return redirect('cart');
         }
     }
-    public function addToCart($id,$item_qty)
+    public function addToCart($id,$item_qty,Request $request)
     {
+        $quantity = $request->input('product-quatity');
+
+        if($quantity!=null)
+        {
+            $item_qty=$quantity;
+        }
+
+
         $product = Product::find($id);
         if(!$product) {
             abort(404);
@@ -55,9 +67,9 @@ class CartController extends  Controller
                 $id => [
                     "id" => $product->id,
                     "name" => $product->name,
-                    "item_qty" => 1,
+                    "item_qty" =>  $item_qty,
                     "price" => $product->price,
-                    "item_img" => $product->item_img
+                    "image" => $product->image
                 ]
             ];
             session()->put('basket', $basket);
@@ -75,12 +87,18 @@ class CartController extends  Controller
             "name" => $product->name,
             "item_qty" => $item_qty,
             "price" => $product->price,
-            "item_img" => $product->item_img
+            "image" => $product->image
         ];
 
 
         session()->put('basket', $basket);
-        return redirect()->back()->with('success', 'Item added to basket successfully!');
+        return redirect()->back();
+    }
+
+    public function clearCart()
+    {
+        session()->remove('basket');
+        return redirect('cart');
     }
 
     public function updateCart($id,$item_qty)

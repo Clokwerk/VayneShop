@@ -4,46 +4,52 @@
 
     <div class="container">
 
-        <div class="wrap-breadcrumb">
-            <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
-                <li class="item-link"><span>login</span></li>
-            </ul>
-        </div>
+        <br>
+        <br>
         <div class=" main-content-area">
 
             <div class="wrap-iten-in-cart">
-                <h3 class="box-title">Products Name</h3>
+                <h3 class="box-title">Cart</h3>
                 <ul class="products-cart">
                     <?php $total = 0 ?>
+
                     @if(session('basket'))
                             @foreach(session('basket') as $id => $infos)
-                                <?php $total += $infos['price'] * $infos['item_qty'] ?>
+                                <?php $totalPerItem = $infos['price'] * $infos['item_qty']
+
+                                ?>
+
+                                <?php $total = $totalPerItem+$total
+
+                                ?>
                     <li class="pr-cart-item">
                         <div class="product-image">
-                            <figure><img src="{{ $infos['item_img'] }}" alt=""></figure>
+                            <figure><img src="{{ $infos['image'] }}" alt=""></figure>
                         </div>
                         <div class="product-name">
                             <a class="link-to-product" href="#">{{ $infos['name'] }}</a>
                         </div>
                         <div class="price-field produtc-price"><p class="price">${{ $infos['price'] }}</p></div>
                         <div class="quantity">
-                            <div class="quantity-input">
-                                <input type="text" name="product-quatity" value="${{$infos['item_qty']}}" data-max="120" pattern="[0-9]*" >
-                                <p id="item_id">{{$id}}</p>
+                            <div  class="product-name">
+                                <input type="text" class="text-center" name="product-quatity" value="{{$infos['item_qty']}}" data-max="120" pattern="[0-9]*" >
+
                             </div>
+
                         </div>
-                        <div class="price-field sub-total"><p class="price">${{$total}}</p></div>
-                        <div class="delete">
-                            <a href="/removeFromCart/{{$id}}" class="btn btn-delete" title="">
-                                <span>Delete from your cart</span>
-                                <i class="fa fa-times-circle" aria-hidden="true"></i>
-                            </a>
-                        </div>
+
+                        <div class="price-field sub-total"><p class="price">${{$totalPerItem}}</p></div>
+
+
+                        <form action="/removeFromCart/{{$id}}">
+                            <button style="margin-top: 20px"  class="btn btn-danger"><i class="fa fa-close"></i></button>
+                        </form>
+
                     </li>
+
                             @endforeach
                         @endif
-
+<hr>
                 </ul>
             </div>
 
@@ -55,19 +61,17 @@
                     <p class="summary-info total-info "><span class="title">Total</span><b class="index">${{$total}}</b></p>
                 </div>
                 <div class="checkout-info">
-                    <label class="checkbox-field">
-                        <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
-                    </label>
+
                     <a class="btn btn-checkout" href="checkout">Check out</a>
                     <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                 </div>
 
                 <div class="update-clear">
-                    <a class="btn btn-clear" href="#">Clear Shopping Cart</a>
-                    <a class="btn btn-update" href="#">Update Shopping Cart</a>
+                    <a class="btn btn-clear" href="/clear">Clear Shopping Cart</a>
+                    <a class="btn btn-update" href="/shop">Update Shopping Cart</a>
                 </div>
             </div>
-
+<br><br>
 
             <div class="widget mercado-widget widget-product">
                 <h2 class="widget-title">Popular Products</h2>

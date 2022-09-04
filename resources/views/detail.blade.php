@@ -11,15 +11,16 @@
                 <li class="item-link"><span>detail</span></li>
             </ul>
         </div>
-        <div class="row">
+        <div class="row border border-light border-3">
 
-            <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
+            <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area  ">
                 <div class="wrap-product-detail">
                     <div class="detail-media">
                         <div class="product-gallery">
                             <img class="" src="{{$image}}">
                         </div>
                     </div>
+
                     <div class="detail-info">
 
                         <h1 class="product-name">{{$name}}</h1>
@@ -39,19 +40,22 @@
                                 <p class="availability">Availability: <b>Not In Stock</b></p>
                             @endif
                         </div>
+                        <form action="/addToCart/{{$id}}/0">
                         <div class="quantity">
                             <span>Quantity:</span>
                             <div class="quantity-input">
                                 <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
 
-                                <a class="btn btn-reduce" href="#"></a>
-                                <a class="btn btn-increase" href="#"></a>
+                                <a class="btn btn-reduce"></a>
+                                <a class="btn btn-increase" ></a>
                             </div>
                         </div>
                         <div class="wrap-butons">
-                            <a href="" class="btn add-to-cart">Add to Cart</a>
+                            <button class="btn add-to-cart">Add to Cart</button>
                         </div>
-                    </div>
+                        </form>
+
+
 
 
 
@@ -61,7 +65,7 @@
             </div><!--end main products area-->
 
 
-
+<br>
     <div class="container">
         <div class="row">
             <div style="color:white; font-family: Roboto; background: red; height: 45px; font-size: 25px;" class="col-12 "> RELATED PRODUCTS</div>
@@ -69,32 +73,28 @@
     </div>
 
     <br>
-    <div class="container">
-        <div class="row">
 
-            @foreach($sameCategory as $product)
-                <div class="col-3">
-                    <div class="card border border-secondary ">
-                        <img style="height: 250px;" class="card-img-top img-fluid" src="{{$product->image}}" alt="Card image cap">
-
-                        <hr>
-                        <div class="card-body">
-                            <h5 class="card-title">{{$product->name}}</h5>
-                        </div>
-                        <hr>
-                        <div class="card-body ">
-                            <h4 class="card-title ">Price:  {{$product->price}} den.</h4>
-
-                        </div>
-                        <hr>
-                        <form action="/productDetail/{{$product->id}}">
-                            <div class="card-body  text-center">
-                                <button class="btn btn-info" type="submit">Details</button>
+    <div class="widget mercado-widget widget-product">
+        <div class="widget-content">
+            <div class="container">
+                <div  class="products row">
+                    @foreach($sameCategory as $product )
+                        <div align="center" class="product-item col-4">
+                            <div class="product product-widget-style">
+                                <div class="thumbnnail">
+                                    <a href="/productDetail/{{$product->id}}" title="{{$product->name}}">
+                                        <figure><img src="{{$product->image}}" alt=""></figure>
+                                    </a>
+                                </div>
+                                <div class="product-info">
+                                    <a href="#" class="product-name"><span>{{$product->name}}</span></a>
+                                    <div class="wrap-price"><span class="product-price">{{$product->price}} den.</span></div>
+                                </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
+            </div>
         </div>
     </div>
 <br>

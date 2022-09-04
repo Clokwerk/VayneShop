@@ -2,24 +2,77 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 class ShopController extends  Controller
 {
-    function getShopPage()
+    function getShopPage(Request $request)
     {
+         $sort=$request->query('sort');
+         $category=$request->query('category');
+
         $currentUser = null;
         if(!Auth::guest()){
             $currentUser = Auth::user();
         }
         $products = Product::all();
+
+
+        if($sort!=null)
+        {
+            if($sort=='regular')
+            {
+                $products= DB::table('products')
+                    ->orderBy('price', 'asc')
+                    ->get();
+            }
+           else if($sort=='desc')
+            {
+                $products= DB::table('products')
+                    ->orderBy('price', 'desc')
+                    ->get();
+            }
+           else
+           {
+               $products = DB::table('products')
+                   ->get();
+           }
+
+        }
+        else
+        {
+            $products = Product::all();
+        }
+
+        $outProducts=array();
+        if($category!=null)
+        {
+            foreach ($products as $p) {
+                if($p->category==$category) {
+                    array_push($outProducts, $p);
+                }
+
+            }
+
+        }
+        else
+        {
+            $outProducts=$products;
+        }
+
+        $products = Product::all();
         $mostPopular = [];
-        if(!empty($products)){
-            $mostPopular = $products->random(3);
+        if(!is_null(Product::first())){
+            if(Product::count() < 3){
+                $mostPopular = $products;
+            }else {
+                $mostPopular = $products->random(3);
+            }
         }
         $page='shop';
-        return View("mpage")->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)
+        return View("mpage")->with('products',$outProducts)->with('mostPopular',$mostPopular)->with('user',$currentUser)
             ->with('page',$page);
     }
 
@@ -45,7 +98,7 @@ $sameCateogry=array();
 
            }
 
-           return View('mpage',(['name'=>$product->name,'image'=>$product->image,'price'=>$product->price,'description'=>$product->description,'availability'=>$product->availability]))
+           return View('mpage',(['id'=>$product->id,'name'=>$product->name,'image'=>$product->image,'price'=>$product->price,'description'=>$product->description,'availability'=>$product->availability]))
                ->with('sameCategory',$sameCateogry)->with('page','detail');
        };
         return Redirect::route('shop');

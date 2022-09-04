@@ -17,13 +17,13 @@
                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="contact-box contact-form">
                             <h2 class="box-title">Leave a Message</h2>
-                            <form action="#" method="get" name="frm-contact">
+                            <form action="/comment" method="post" name="frm-contact">
 
                                 <label for="name">Name<span>*</span></label>
-                                <input type="text" value="" id="name" name="name" >
+                                <input type="text"  id="name" value="{{$currentUser->name}}" name="name" >
 
                                 <label for="email">Email<span>*</span></label>
-                                <input type="text" value="" id="email" name="email" >
+                                <input type="text"  id="email" value="{{$currentUser->email}}" name="email" >.
 
                                 <label for="phone">Number Phone</label>
                                 <input type="text" value="" id="phone" name="phone" >
