@@ -41,14 +41,14 @@
 
                     <table>
                         <tr>
-                            <th style="font-size: medium">Product ID</th>
+                            <th style="font-size: medium;">Product Image</th>
                             <th style="font-size: medium">Product Name</th>
                             <th style="text-align: end; font-size: medium">Actions</th>
                         </tr>
 
                         @foreach($products as $product)
                             <tr>
-                                <td style="border: 1px solid #212529">{{$product->id}}</td>
+                                <td style="border: 1px solid #212529; width: 142px;height: 50px"><img src="{{$product->image}}"</td>
                                 <td style="border: 1px solid #212529">{{$product->name}}</td>
                                 <td style="border: 1px solid #212529">
                                 <form action="/adminEditProductPage/{{$product->id}}">
