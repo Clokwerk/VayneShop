@@ -38,9 +38,9 @@
 
                     <div class="wrap-search center-section">
                         <div class="wrap-search-form">
-                            <form action="#" id="form-search-top" name="form-search-top">
+                            <form action="/search" id="form-search-top" name="form-search-top">
                                 <input type="text" name="search" value="" placeholder="Search here...">
-                                <button form="form-search-top" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
                         </div>
                     </div>
@@ -124,11 +124,11 @@
                                         <div class="row">
 
                                             @if (!Auth::guest() && $currentUser->userType != 'Administrator')
-                                            <div style="width: 300px;" class="col-4">
+                                            <div style="width: 350px;" class="col-4">
 
                                             </div>
                                             @else
-                                                <div style="width: 170px;" class="col-4">
+                                                <div style="width: 200px;" class="col-4">
 
                                                 </div>
                                             @endif

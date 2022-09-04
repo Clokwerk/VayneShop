@@ -73,7 +73,36 @@ class ShopController extends  Controller
         }
         $page='shop';
         return View("mpage")->with('products',$outProducts)->with('mostPopular',$mostPopular)->with('user',$currentUser)
-            ->with('page',$page);
+            ->with('page',$page)->with('searched',"");
+    }
+
+
+    function search(Request $request)
+    {
+        $search=$request->query('search');
+        $currentUser = null;
+        if(!Auth::guest()){
+            $currentUser = Auth::user();
+        }
+
+        $outProducts=DB::table('products')
+            ->where('name', 'like','%'.$search.'%' )
+            ->orWhere('description', 'like','%'.$search.'%' )
+            ->orWhere('category','like','%'.$search.'%')
+            ->get();
+
+        $products = Product::all();
+        $mostPopular = [];
+        if(!is_null(Product::first())){
+            if(Product::count() < 3){
+                $mostPopular = $products;
+            }else {
+                $mostPopular = $products->random(3);
+            }
+        }
+        $page='shop';
+        return View("mpage")->with('products',$outProducts)->with('mostPopular',$mostPopular)->with('user',$currentUser)
+            ->with('page',$page)->with('searched',$search);
     }
 
     function getProductDetailPage($id){
