@@ -109,17 +109,7 @@
                                 </li>
 
 
-                                <?php $currentUser = Auth::user();
-                                ?>
 
-                                @if ( !Auth::guest() && $currentUser->userType == 'Administrator')
-                                <li style="height: 40px; background: orange"class="menu-item">
-                                    <a href="/adminPanel" class="link-term mercado-item-title">Admin Panel</a>
-                                </li>
-                                    <li style="height: 40px ;background: orange"class="menu-item">
-                                        <a href="/poraki" class="link-term mercado-item-title">Messages</a>
-                                    </li>
-                                @endif
 
                                 <li>
                                     <div style="height: 40px" class="container">

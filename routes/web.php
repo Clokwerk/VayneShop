@@ -30,7 +30,7 @@ Route::get('/clear',[CartController::class,'clearCart'])->middleware(['auth']);
 Route::get('/addToCart/{id}/{item_qty}',[CartController::class,'addToCart'])->middleware(['auth']);
 Route::get('/removeFromCart/{id}',[CartController::class,'removeFromCart'])->middleware(['auth']);
 Route::get('/updateCart/{id}/{item_qty}',[CartController::class,'updateCart'])->middleware(['auth']);
-Route::get('/checkout',[CheckoutController::class,'getCheckoutPage']);
+Route::get('/checkout',[CheckoutController::class,'getCheckoutPage'])->middleware(['auth']);
 Route::get('/about-us',[HomeController::class,'getAboutUsPage']);
 Route::get('/contact-us',[HomeController::class,'getContactUsPage']);
 Route::post('/comment',[\App\Http\Controllers\CommentController::class,'addComment']);
