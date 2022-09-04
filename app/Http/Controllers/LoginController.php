@@ -33,6 +33,7 @@ class LoginController extends Controller
 
     public function logout(Request $request){
         if(!Auth::guest()){
+            session()->remove('basket');
             Auth::logout();
         }
         return redirect('/');

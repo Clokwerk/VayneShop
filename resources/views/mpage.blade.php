@@ -30,7 +30,7 @@
 <header id="header" class="header header-style-1">
 
             <div class="container">
-                <div class="mid-section main-info-area">
+                <div class="mid-section main-info-area" style="height:80px">
 
                     <div class="wrap-logo-top left-section">
                         <a href="index.html" class="link-to-home"><img src="{{asset('assets/images/Screenshot 2022-09-02 024807.png')}}" alt="mercado"></a>

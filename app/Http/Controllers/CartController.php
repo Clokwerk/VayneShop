@@ -39,11 +39,18 @@ class CartController extends  Controller
                 unset($basket[$request->id]);
                 session()->put('basket', $basket);
             }
-            session()->flash('success', 'Item removed successfully');
+             return redirect('cart');
         }
     }
-    public function addToCart($id,$item_qty)
+    public function addToCart($id,$item_qty,Request $request)
     {
+        $quantity = $request->input('product-quatity');
+
+        if($quantity!=null)
+        {
+            $item_qty=$quantity;
+        }
+
         $product = Product::find($id);
         if(!$product) {
             abort(404);
@@ -57,7 +64,7 @@ class CartController extends  Controller
                     "name" => $product->name,
                     "item_qty" => 1,
                     "price" => $product->price,
-                    "item_img" => $product->item_img
+                    "image" => $product->image
                 ]
             ];
             session()->put('basket', $basket);
@@ -75,12 +82,18 @@ class CartController extends  Controller
             "name" => $product->name,
             "item_qty" => $item_qty,
             "price" => $product->price,
-            "item_img" => $product->item_img
+            "image" => $product->image
         ];
 
 
         session()->put('basket', $basket);
-        return redirect()->back()->with('success', 'Item added to basket successfully!');
+        return redirect()->back();
+    }
+
+    public function clearCart()
+    {
+        session()->remove('basket');
+        return redirect('cart');
     }
 
     public function updateCart($id,$item_qty)

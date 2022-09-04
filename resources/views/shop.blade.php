@@ -71,7 +71,7 @@
 
 
 
-                                        <div class="card border border-secondary rounded ">
+                                        <div class="card border border-light rounded-top">
                                             <img style="height: 250px;" class="card-img-top img-fluid rounded" src="{{$product->image}}" alt="Card image cap">
 
                                             <hr>
