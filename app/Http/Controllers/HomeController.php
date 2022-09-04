@@ -14,8 +14,12 @@ class HomeController extends  Controller
         }
         $products = Product::all();
         $mostPopular = [];
-        if(!empty($products)){
-            $mostPopular = $products->random(3);
+        if(!is_null(Product::first())){
+            if(Product::count() < 3){
+                $mostPopular = $products;
+            }else {
+                $mostPopular = $products->random(3);
+            }
         }
         return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)->with('page','home');
     }
