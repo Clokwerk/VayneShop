@@ -17,7 +17,7 @@
 
                 <div class="banner-shop">
                     <a href="#" class="banner-link">
-                        <figure><img style="height: 400px; width: 1164px;" src="https://www.beautyandmakeup.co/wp-content/uploads/2020/12/orgonic-cosmetics.jpg"  ></figure>
+                        <figure><img style="height: 330px; width: 1164px;" src="https://www.beautyandmakeup.co/wp-content/uploads/2020/12/orgonic-cosmetics.jpg"  ></figure>
                     </a>
                 </div>
 
@@ -51,7 +51,13 @@
 
                     </div>
 
-                </div><!--end wrap shop control-->
+                </div>
+
+                @if($searched!='')
+                    <div><h3 class="text-center">Searched: <b>{{$searched}}</b></h3></div>}
+                @endif
+
+                <!--end wrap shop control-->
                 <br>
 
                 <div class="row">
