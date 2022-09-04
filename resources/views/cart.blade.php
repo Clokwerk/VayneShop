@@ -68,10 +68,10 @@
 
                 <div class="update-clear">
                     <a class="btn btn-clear" href="/clear">Clear Shopping Cart</a>
-                    <a class="btn btn-update" href="#">Update Shopping Cart</a>
+                    <a class="btn btn-update" href="/shop">Update Shopping Cart</a>
                 </div>
             </div>
-
+<br><br>
 
             <div class="widget mercado-widget widget-product">
                 <h2 class="widget-title">Popular Products</h2>

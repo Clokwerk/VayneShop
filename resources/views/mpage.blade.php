@@ -30,10 +30,10 @@
 <header id="header" class="header header-style-1">
 
             <div class="container">
-                <div class="mid-section main-info-area" style="height:80px">
+                <div class="mid-section main-info-area" style="height:66px">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="index.html" class="link-to-home"><img src="{{asset('assets/images/Screenshot 2022-09-02 024807.png')}}" alt="mercado"></a>
+                        <a href="index.html" class="link-to-home"><img style="height: 50px;" src="{{asset('assets/images/Screenshot 2022-09-02 024807.png')}}" alt="mercado"></a>
                     </div>
 
                     <div class="wrap-search center-section">
