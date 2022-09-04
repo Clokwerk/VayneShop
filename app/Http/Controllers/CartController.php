@@ -51,6 +51,7 @@ class CartController extends  Controller
             $item_qty=$quantity;
         }
 
+
         $product = Product::find($id);
         if(!$product) {
             abort(404);
@@ -62,7 +63,7 @@ class CartController extends  Controller
                 $id => [
                     "id" => $product->id,
                     "name" => $product->name,
-                    "item_qty" => 1,
+                    "item_qty" =>  $item_qty,
                     "price" => $product->price,
                     "image" => $product->image
                 ]
