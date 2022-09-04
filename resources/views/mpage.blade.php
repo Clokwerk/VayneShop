@@ -114,15 +114,16 @@
                                 <li>
                                     <div style="height: 40px" class="container">
                                         <div class="row">
-                                            <div style="width: 310px;" class="col-4">
+
+                                            @if (!Auth::guest() && $currentUser->userType != 'Administrator')
+                                            <div style="width: 300px;" class="col-4">
 
                                             </div>
-                                            <div class="col-4">
+                                            @else
+                                                <div style="width: 170px;" class="col-4">
 
-                                            </div>
-                                            <div class="col-4">
-
-                                            </div>
+                                                </div>
+                                            @endif
 
                                         </div>
 
