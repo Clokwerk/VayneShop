@@ -43,7 +43,7 @@
                                 <option value="Body">Body</option>
                             </select>
 
-                            <button type="submit" class="btn btn-primary">Search</button>
+                            <button type="submit" class="btn btn-danger" style="font-size: 10px; height: 30px; width: 60px; font-size: small">Search</button>
                         </div>
 
                         </form>
@@ -86,13 +86,13 @@
                                             <hr>
                                             <form action="addToCart/{{$product->id}}/1">
                                             <div class="card-body  text-center">
-                                                <button class="btn btn-danger" type="submit">Add To Cart</button>
+                                                <button class="btn btn-danger" type="submit" style="font-size: 10px; height: 30px; width: 100px; font-size: small">Add To Cart</button>
                                             </div>
                                             </form>
 
                                             <form action="/productDetail/{{$product->id}}">
                                                 <div class="card-body  text-center">
-                                                    <button class="btn btn-info" type="submit">Details</button>
+                                                    <button class="btn btn-info" type="submit" style="font-size: 10px; height: 30px; width: 60px; font-size: small">Details</button>
                                                 </div>
                                             </form>
                                         </div>

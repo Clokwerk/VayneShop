@@ -59,7 +59,7 @@
                                         <input id="productAvailability" type="checkbox" name="productAvailability" value="Available">
                                     @endif
                                 </p>
-                                <input type="submit" value="Submit">
+                                <button type="submit" value="Submit" style="background-color: red; color: white; width: 100px; height: 35px; font-size: 15px; border-color: white">Submit</button>
                             </form>
 
                         </div>
