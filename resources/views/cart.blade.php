@@ -1,4 +1,14 @@
 
+
+<?php
+
+
+$items = [];
+
+?>
+<script src="https://js.stripe.com/v3/"></script>
+
+
 <!--main area-->
 <main id="main" class="main-site">
 
@@ -17,6 +27,20 @@
                             @foreach(session('basket') as $id => $infos)
                                 <?php $totalPerItem = $infos['price'] * $infos['item_qty']
 
+
+                                ?>
+                            <?php
+                                $newItem = [
+                                    'price_data' => [
+                                        'currency' => 'usd',
+                                        'product_data' => [
+                                            'name' => $infos['name'],
+                                        ],
+                                        'unit_amount' => $infos['price'],
+                                    ],
+                                    'quantity' => $infos['item_qty'],
+                                ];
+                                array_push($items,$newItem);
                                 ?>
 
                                 <?php $total = $totalPerItem+$total
@@ -62,7 +86,8 @@
                 </div>
                 <div class="checkout-info">
 
-                    <a class="btn btn-checkout" href="checkout">Check out</a>
+                    <!--<a class="btn btn-checkout" id="checkout-button" >Check out</a> -->
+                    <button class="btn btn-checkout" id="checkout-button">Check out</button>
                     <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                 </div>
 
@@ -116,3 +141,29 @@
 
 </main>
 <!--main area-->
+<?php
+require_once __DIR__. '/../../../vendor/autoload.php';
+// This is your test secret API key.
+\Stripe\Stripe::setApiKey('');
+$stripeSession = \Stripe\Checkout\Session::create([
+    'line_items' => $items,
+    'mode' => 'payment',
+    'success_url' => 'https://example.com/success',
+    'cancel_url' => 'https://example.com/cancel',
+]);
+
+?>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    const stripe = Stripe('') //Your Publishable key.
+    const btn = document.getElementById('checkout-button');
+    btn.addEventListener("click", function()
+    {
+        /*
+        stripe.redirectToCheckout({
+            $sessionId: "<?php echo $stripeSession->id; ?> "
+        })
+        */
+        window.location.replace("<?php echo $stripeSession->url; ?>");
+    });
+</script>
