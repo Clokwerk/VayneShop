@@ -9,7 +9,7 @@
         <div class=" main-content-area">
 
             <div class="wrap-iten-in-cart">
-                <h3 class="box-title">Products Name</h3>
+                <h3 class="box-title">Cart</h3>
                 <ul class="products-cart">
                     <?php $total = 0 ?>
 
@@ -61,9 +61,7 @@
                     <p class="summary-info total-info "><span class="title">Total</span><b class="index">${{$total}}</b></p>
                 </div>
                 <div class="checkout-info">
-                    <label class="checkbox-field">
-                        <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
-                    </label>
+
                     <a class="btn btn-checkout" href="checkout">Check out</a>
                     <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                 </div>
