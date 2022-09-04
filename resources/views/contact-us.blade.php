@@ -23,7 +23,7 @@
                                 <input type="text"  id="name" value="{{$currentUser->name}}" name="name" >
 
                                 <label for="email">Email<span>*</span></label>
-                                <input type="text"  id="email" value="{{$currentUser->email}}" name="email" >
+                                <input type="text"  id="email" value="{{$currentUser->email}}" name="email" >.
 
                                 <label for="phone">Number Phone</label>
                                 <input type="text" value="" id="phone" name="phone" >
