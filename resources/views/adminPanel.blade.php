@@ -4,13 +4,15 @@
     <style>
         table {
             font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
+            border: 1px solid #212529;
+            width: 1200px;
+            position: relative;
         }
         td, th {
-            border: 1px solid #dddddd;
+
             text-align: left;
-            padding: 8px;
+            font-size: small;
+            padding: 15px;
         }
         tr:nth-child(even) {
             background-color: #dddddd;
@@ -39,34 +41,38 @@
 
                     <table>
                         <tr>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Actions</th>
+                            <th style="font-size: medium">Product ID</th>
+                            <th style="font-size: medium">Product Name</th>
+                            <th style="text-align: end; font-size: medium">Actions</th>
                         </tr>
-
-
 
                         @foreach($products as $product)
                             <tr>
-                                <td>{{$product->id}}</td>
-                                <td>{{$product->name}}</td>
-                                <td><a href="/adminEditProductPage/{{$product->id}}" title="Edit product">Edit product</a>
-                                    <a href="/adminDeleteProduct/{{$product->id}}" title="Delete product">Delete product</a>
+                                <td style="border: 1px solid #212529">{{$product->id}}</td>
+                                <td style="border: 1px solid #212529">{{$product->name}}</td>
+                                <td style="border: 1px solid #212529">
+                                <form action="/adminEditProductPage/{{$product->id}}">
+                                        <button class="btn btn-info" type="submit" style="font-size: 10px; height: 30px; width: 85px; font-size: small">Edit product</button>
+                                </form>
+                                </td>
+                                <td style="border: 1px solid #212529">
+                                <form action="/adminDeleteProduct/{{$product->id}}">
+                                    <button class="btn btn-danger" type="submit" style="font-size: 10px; height: 30px; width: 100px; font-size: small">Delete product</button>
+                                </form>
                                 </td>
                             </tr>
-
-
-
-
-
-                        @endforeach
+                       @endforeach
 
 
 
                     </table>
-                   <a title="New product" href="adminNewProductPage">New product</a>
+
+                    <form action="/adminNewProductPage">
+                        <button class="btn btn-submit" type="submit" style="font-size: 10px; height: 30px; width: 150px; font-size: small; background-color: #00CA00"><b style="color: white">ADD NEW PRODUCT</b></button>
+                    </form>
 
                 </div>
+
 
 
             </div><!--end main products area-->

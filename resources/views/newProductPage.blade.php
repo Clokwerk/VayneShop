@@ -49,7 +49,7 @@
                                     <label for="llname">Category<span>*</span></label>
                                     <input id="llname" type="text" name="category" value="" placeholder="Face">
                                 </p>
-                                <input type="submit" value="Submit">
+                                <button type="submit" value="Submit" style="background-color: red; color: white; width: 100px; height: 35px; font-size: 15px; border-color: white">Submit</button>
                             </form>
 
                         </div>
