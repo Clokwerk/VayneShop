@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends  Controller
 {
     function getCheckoutPage()
     {
+        $currentUser = Auth::user();
         $products = Product::all();
         $mostPopular = [];
         if(!is_null(Product::first())){
@@ -17,7 +19,7 @@ class CheckoutController extends  Controller
                 $mostPopular = $products->random(3);
             }
         }
-        return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('page','checkout');
+        return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)->with('page','checkout');
     }
 
 }
