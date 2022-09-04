@@ -101,9 +101,7 @@
                                 <li style="height: 40px" class="menu-item">
                                     <a href="/cart" class="link-term mercado-item-title">Cart</a>
                                 </li>
-                                <li style="height: 40px" class="menu-item">
-                                    <a href="/checkout" class="link-term mercado-item-title">Checkout</a>
-                                </li>
+
                                 <li style="height: 40px"class="menu-item">
                                     <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
                                 </li>
