@@ -25,7 +25,13 @@ class HomeController extends  Controller
     }
 
     function getContactUsPage(){
-        return View('mpage')->with('page','contact-us');
+        if(!Auth::guest()) {
+
+            return View('mpage')->with('page', 'contact-us');
+        }
+        else{
+            return redirect('/loginPage');
+        }
     }
 
     function primer(){

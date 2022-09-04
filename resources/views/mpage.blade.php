@@ -104,23 +104,36 @@
                                 <li style="height: 40px" class="menu-item">
                                     <a href="/checkout" class="link-term mercado-item-title">Checkout</a>
                                 </li>
-                                <li style="height: 40pxpx"class="menu-item">
+                                <li style="height: 40px"class="menu-item">
                                     <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
                                 </li>
 
 
+                                <?php $currentUser = Auth::user();
+                                ?>
+
+                                @if ( !Auth::guest() && $currentUser->userType == 'Administrator')
+                                <li style="height: 40px; background: orange"class="menu-item">
+                                    <a href="/adminPanel" class="link-term mercado-item-title">Admin Panel</a>
+                                </li>
+                                    <li style="height: 40px ;background: orange"class="menu-item">
+                                        <a href="/poraki" class="link-term mercado-item-title">Messages</a>
+                                    </li>
+                                @endif
+
                                 <li>
                                     <div style="height: 40px" class="container">
                                         <div class="row">
-                                            <div style="width: 310px;" class="col-4">
+
+                                            @if (!Auth::guest() && $currentUser->userType != 'Administrator')
+                                            <div style="width: 300px;" class="col-4">
 
                                             </div>
-                                            <div class="col-4">
+                                            @else
+                                                <div style="width: 170px;" class="col-4">
 
-                                            </div>
-                                            <div class="col-4">
-
-                                            </div>
+                                                </div>
+                                            @endif
 
                                         </div>
 

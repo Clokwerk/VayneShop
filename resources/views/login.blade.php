@@ -35,6 +35,10 @@
                                     <a class="link-function left-position" href="#" title="Forgotten password?">Forgotten password?</a>
                                 </fieldset>
                                 <input type="submit" class="btn btn-submit" value="Login" name="submit">
+<hr>
+                                <div class="text-center"> <b> <a style="color:red" class=" text-center" href="/loginAdminPage" >Login As Admin</a>
+                                    </b></div>
+
                             </form>
                         </div>
                     </div>
