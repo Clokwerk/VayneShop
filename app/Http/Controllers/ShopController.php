@@ -93,7 +93,7 @@ $sameCateogry=array();
 
            }
 
-           return View('mpage',(['name'=>$product->name,'image'=>$product->image,'price'=>$product->price,'description'=>$product->description,'availability'=>$product->availability]))
+           return View('mpage',(['id'=>$product->id,'name'=>$product->name,'image'=>$product->image,'price'=>$product->price,'description'=>$product->description,'availability'=>$product->availability]))
                ->with('sameCategory',$sameCateogry)->with('page','detail');
        };
         return Redirect::route('shop');
