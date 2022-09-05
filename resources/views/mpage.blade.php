@@ -101,20 +101,28 @@
                                 <li style="height: 40px" class="menu-item">
                                     <a href="/cart" class="link-term mercado-item-title">Cart</a>
                                 </li>
-
+                                <?php $currentUser = Auth::user();
+                                ?>
+                                @if ( $currentUser==null || $currentUser->userType != 'Administrator')
                                 <li style="height: 40px"class="menu-item">
                                     <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
                                 </li>
+                                    <li style="height: 40px; background: orange"class="menu-item">
+                                        <a href="/ordersCustomer" class="link-term mercado-item-title">Orders</a>
+                                    </li>
+                                @endif
 
-                                <?php $currentUser = Auth::user();
-                                ?>
 
                                 @if ( !Auth::guest() && $currentUser->userType == 'Administrator')
+
                                     <li style="height: 40px; background: orange"class="menu-item">
                                         <a href="/adminPanel" class="link-term mercado-item-title">Admin Panel</a>
                                     </li>
+                                    <li style="height: 40px; background: orange"class="menu-item">
+                                        <a href="/ordersAdmin" class="link-term mercado-item-title">Orders</a>
+                                    </li>
                                     <li style="height: 40px ;background: orange"class="menu-item">
-                                        <a href="/poraki" class="link-term mercado-item-title">Messages</a>
+                                        <a href="/messages" class="link-term mercado-item-title">Messages</a>
                                     </li>
                                 @endif
 
