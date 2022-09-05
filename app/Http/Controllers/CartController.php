@@ -18,8 +18,9 @@ class CartController extends  Controller
             return false;
         }
     }
-    function getCartPage()
+    function getCartPage(Request $request)
     {
+
         $currentUser = Auth::user();
         $products = Product::all();
         $mostPopular = [];
@@ -30,7 +31,8 @@ class CartController extends  Controller
                 $mostPopular = $products->random(3);
             }
         }
-        return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)->with('page','cart');
+        return view('mpage')->with('products',$products)->with('mostPopular',$mostPopular)->with('user',$currentUser)->with('page','cart')
+            ->with('key',$request->query('key'));
     }
 
 

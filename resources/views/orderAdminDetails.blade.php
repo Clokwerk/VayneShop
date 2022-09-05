@@ -13,8 +13,11 @@
                     <h6>Order ID: {{$order->id}}</h6>
                     <article class="card">
                         <div class="card-body row">
+                            <div class="col"> <strong>Ordered by :</strong> <br>{{$user->name}} </div>
+                            <div class="col"> <strong>Email:</strong> <br>{{$user->email}} </div>
                             <div class="col"> <strong>Total Price:</strong> <br> {{$order->totalPrice}} den. </div>
-                            <div class="col"> <strong>Status :</strong> <br>{{$order->status}} </div>
+                            <div STYLE="background: lightsalmon" class="col"> <strong>Status :</strong> <br>{{$order->status}} </div>
+
                         </div>
                     </article>
                     @if($order->status=='WAITING')
@@ -50,8 +53,19 @@
 
                     </ul>
                     <hr>
-                    <a href="/ordersCustomer" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
-                </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="/ordersAdmin" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
+                            </div>
+                            <div class="col-6 ">
+                                <a  href="/order/accept/{{$order->id}}" class="btn btn-success position-absolute top-50 start-50" data-abc="true"> <i class="fa "></i> Accept Order</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+               </div>
             </article>
         </div>
     </div>

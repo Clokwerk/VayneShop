@@ -57,6 +57,9 @@ Route::get('/ordersCustomer',[OrderController::class,'showC'])->middleware(['aut
 Route::get('/order/details/{id}',[OrderController::class,'detailsC'])->middleware(['auth']);
 
 Route::get('/ordersAdmin',[OrderController::class,'showA'])->middleware(['authAdmin']);
+Route::get('/order/detailsAdmin/{id}',[OrderController::class,'detailsA'])->middleware(['authAdmin']);
+Route::get('/order/accept/{id}',[OrderController::class,'accept'])->middleware(['authAdmin']);
+
 
 Route::get('/primer',[HomeController::class,'primer'])->middleware(['auth']);
 
