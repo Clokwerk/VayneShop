@@ -50,7 +50,7 @@ class OrderController extends Controller
 
         session()->remove('basket');
 
-        return redirect("/ordersCustomer");
+        return redirect("/ordersCustomer?key=S");
 
     }
 
@@ -73,8 +73,10 @@ class OrderController extends Controller
 
     }
 
-    public function showC ()
+    public function showC (Request $request)
     {
+
+
         $currentUser = null;
         if(!Auth::guest()){
             $currentUser = Auth::user();
@@ -85,7 +87,7 @@ class OrderController extends Controller
                 ->where('ownerId', $currentUser->id )
                 ->get();
 
-            return View('mpage')->with('page','ordersCustomer')->with("orders",$orders);
+            return View('mpage')->with('page','ordersCustomer')->with("orders",$orders)->with('succ',$request->query('key'));
 
             /*foreach ($orders as $o)
             {
