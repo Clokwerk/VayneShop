@@ -64,10 +64,7 @@ class OrderController extends Controller
         {
             $orders=Order::all();
 
-            foreach ($orders as $o)
-            {
-                echo $o->id."----";
-            }
+            return View('mpage')->with('page','ordersAdmin')->with("orders",$orders);
         }
 
 
@@ -127,6 +124,50 @@ class OrderController extends Controller
 
 
     }
+
+    public function detailsA ($id)
+    {
+        $currentUser = null;
+        if(!Auth::guest()){
+            $currentUser = Auth::user();
+        }
+        if($currentUser->userType="Administrator")
+        {
+            $orders=DB::table('orders')
+                ->where('id', $id )
+                ->get();
+            $user=DB::table('users')
+                ->where('id', $orders[0]->ownerId )
+                ->get()[0];
+
+            $products=json_decode($orders[0]->productIds);
+            $quantity=json_decode($orders[0]->quantityIds);
+            $izlezP=array();
+            foreach ($products as $p)
+            {
+                array_push($izlezP,DB::table('products')
+                    ->where('id', $p )
+                    ->get()[0] );
+            }
+
+            return View('mpage')->with('page','orderAdminDetails')->with("order",$orders[0])
+                ->with("products",$izlezP)->with("quantity",$quantity)->with("user",$user);
+
+        }
+
+
+    }
+
+    public function accept($id)
+    {
+        DB::table('orders')
+            ->where('id', $id)
+            ->update(['status' => 'CONFIRMED']);
+
+        return redirect()->back();
+
+    }
+
 
 
 

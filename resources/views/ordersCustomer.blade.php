@@ -17,7 +17,11 @@
                 <tr>
                     <th scope="col">OrderId</th>
                     <th scope="col">TotalPrice</th>
-                    <th scope="col">Status</th>
+                    @if($order->status=='WAITING')
+                        <td style="background: lightsalmon">{{$order->status}}...</td>
+                    @else
+                        <td style="background: lightgreen">{{$order->status}}!!!</td>
+                    @endif
                     <th scope="col"></th>
                 </tr>
                 </thead>
