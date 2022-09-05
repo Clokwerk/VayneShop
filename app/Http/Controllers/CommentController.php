@@ -6,6 +6,8 @@ use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+
 class CommentController extends Controller
 {
 
@@ -26,6 +28,33 @@ class CommentController extends Controller
 
 
         return View('mpage')->with('page','confirmed');
+    }
+
+    public function listComments()
+    {
+        $currentUser = Auth::user();
+        if($currentUser->userType == 'Administrator') {
+
+            $messages=  Message::all();
+            return View('mpage')->with('page','messages')->with('messages',$messages);
+
+        }
+        else
+        {
+            return redirect('/loginAdminPage');
+        }
+
+
+    }
+
+    public function delete($id)
+    {
+        DB::table('messages')
+            ->where('id',$id )
+            ->delete();
+
+        return redirect('messages');
+
     }
 
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 class LoginController extends Controller
 {
     public function authenticate(Request $request)
@@ -28,7 +30,7 @@ class LoginController extends Controller
         }
 
 
-         return View('login-error');
+         return redirect('/loginPage?error=Invalid username or password!!!');
     }
 
     public function logout(Request $request){
@@ -45,25 +47,33 @@ class LoginController extends Controller
         $password = $request->input('password');
         $name = $request->input('name');
 
+       /*$user= DB::table('users')
+            ->where('email',$email )
+            ->get();*/
 
-        return User::create([
+       /*if($user!=null)
+       {
+           return redirect('/registerPage?error=This email already exist!!!');
+       }*/
+
+        User::create([
             'email' => $email,
             'password' => $password,
             'userType' => 'Customer',
             'name' => $name
         ]);
-        auth()->login($user);
-
-        return redirect('/')->with('success', "Account successfully registered.");
+        return redirect('/loginPage')->with('success', "Account successfully registered.");
     }
 
 
 
-    public function getLoginPage(){
-        return View('mpage')->with('page','login');
+    public function getLoginPage(Request $request){
+        $error=$request->query('error');
+        return View('mpage')->with('page','login')->with('error',$error);;
     }
 
-    public function getRegisterPage(){
-        return View('mpage')->with('page','register');
+    public function getRegisterPage(Request $request){
+        $error=$request->query('error');
+        return View('mpage')->with('page','register')->with('error',$error);
     }
 }
