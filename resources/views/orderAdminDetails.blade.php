@@ -16,7 +16,7 @@
                             <div class="col"> <strong>Ordered by :</strong> <br>{{$user->name}} </div>
                             <div class="col"> <strong>Email:</strong> <br>{{$user->email}} </div>
                             <div class="col"> <strong>Total Price:</strong> <br> {{$order->totalPrice}} den. </div>
-                            <div STYLE="background: lightsalmon" class="col"> <strong>Status :</strong> <br>{{$order->status}} </div>
+                            <div  class="col"> <strong>Status :</strong> <br>{{$order->status}} </div>
 
                         </div>
                     </article>
@@ -59,8 +59,11 @@
                                 <a href="/ordersAdmin" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
                             </div>
                             <div class="col-6 ">
+                                @if($order->status=="WAITING")
                                 <a  href="/order/accept/{{$order->id}}" class="btn btn-success position-absolute top-50 start-50" data-abc="true"> <i class="fa "></i> Accept Order</a>
-
+                                @else
+                                    <a disabled="true" href="/order/accept/{{$order->id}}" class="btn btn-success position-absolute top-50 start-50" data-abc="true"> <i class="fa "></i> Accept Order</a>
+                                @endif
                             </div>
 
                         </div>
