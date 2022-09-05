@@ -2,10 +2,15 @@
 
 <!--main area-->
 <main id="main" class="main-site">
-
+<br>
 <div class="container text-center">
     <div class="row justify-content-center">
         <div class="text-center col-12"><h1>Orders</h1></div>
+
+        @if($succ!=null)
+        <div style="color:lawngreen" class="text-center col-12"><b><h1>Successful payment!!!</h1></b> </div>
+        @endif
+
         <div class="col-8">
             <table class="table table-bordered">
                 <thead>
@@ -33,7 +38,9 @@
 
 
 </div>
+<div style="height: 500px;">
 
+</div>
 </main>
 <!--main area-->
 
