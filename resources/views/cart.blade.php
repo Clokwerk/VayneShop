@@ -148,7 +148,7 @@ $items = [];
 <?php
 require_once __DIR__. '/../../../vendor/autoload.php';
 // This is your test secret API key.
-\Stripe\Stripe::setApiKey('');
+\Stripe\Stripe::setApiKey('sk_test_51LeNXHKbR0CuOHxGqqxipehQDjD80TdsbOvCYk8TUnjp6UJnT3sYSV6r2Qgn5HYXBCz7Ahbj0yDIP9Vp16bC2stu00M56q47JJ');
 $stripeSession = \Stripe\Checkout\Session::create([
     'line_items' => $items,
     'mode' => 'payment',
@@ -159,7 +159,7 @@ $stripeSession = \Stripe\Checkout\Session::create([
 ?>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    const stripe = Stripe('') //Your Publishable key.
+    const stripe = Stripe('pk_test_51LeNXHKbR0CuOHxGVkWmZM9J2Gu0uNTVHNIUQXhKCPGp2NOGJ5rgahihPw6Aew6XZEgOWfxXoDgPuxcX0F47LOA300pv4gAdtq') //Your Publishable key.
     const btn = document.getElementById('checkout-button');
     btn.addEventListener("click", function()
     {
