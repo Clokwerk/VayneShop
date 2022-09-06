@@ -81,4 +81,10 @@ class HomeController extends  Controller
 
 
     }
+    public function profile()
+    {
+        return View("mpage")->with('page','profile');
+    }
+
+
 }
