@@ -21,6 +21,11 @@ class LoginController extends Controller
         echo $email." ".$password;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
+        if($user==null)
+        {
+            return redirect('/loginPage?error=Invalid username or password!!!');
+        }
+
 
         if($user->email == $email && $user->password == $password && $user->userType == 'Customer'){
             Auth::login($user);
@@ -30,7 +35,8 @@ class LoginController extends Controller
         }
 
 
-         return redirect('/loginPage?error=Invalid username or password!!!');
+
+
     }
 
     public function logout(Request $request){
@@ -69,7 +75,7 @@ class LoginController extends Controller
 
     public function getLoginPage(Request $request){
         $error=$request->query('error');
-        return View('mpage')->with('page','login')->with('error',$error);;
+        return View('mpage')->with('page','login')->with('error',$error);
     }
 
     public function getRegisterPage(Request $request){
