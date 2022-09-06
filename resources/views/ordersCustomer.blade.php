@@ -17,11 +17,9 @@
                 <tr>
                     <th scope="col">OrderId</th>
                     <th scope="col">TotalPrice</th>
-                    @if($order->status=='WAITING')
-                        <td style="background: lightsalmon">{{$order->status}}...</td>
-                    @else
-                        <td style="background: lightgreen">{{$order->status}}!!!</td>
-                    @endif
+
+                        <td>Status</td>
+
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -30,8 +28,11 @@
                 <tr class="">
                     <th  scope="row">{{$order->id}}</th>
                     <td>{{$order->totalPrice}} den.</td>
-                    <td>{{$order->status}}</td>
-                    <td class="text-center"><a href="/order/details/{{$order->id}}"><button  class="btn btn-info">Details</button></a></td>
+                    @if($order->status=='WAITING')
+                        <td style="background: lightsalmon">{{$order->status}}...</td>
+                    @else
+                        <td style="background: lightgreen">{{$order->status}}!!!</td>
+                    @endif                    <td class="text-center"><a href="/order/details/{{$order->id}}"><button  class="btn btn-info">Details</button></a></td>
                 </tr>
                 @endforeach
                 </tbody>

@@ -26,7 +26,7 @@ class LoginController extends Controller
             Auth::login($user);
 
 
-            return redirect()->intended();
+            return redirect("");
         }
 
 
