@@ -20,6 +20,12 @@ class AdminController extends Controller
         echo $email." ".$password;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
+        if($user==null)
+        {
+            return redirect('/loginAdminPage?error=Invalid username or password!!!');
+        }
+
+
 
         if($user->email == $email && $user->password == $password && $user->userType == 'Administrator'){
             Auth::login($user);
@@ -28,8 +34,8 @@ class AdminController extends Controller
             return redirect()->intended();
         }
 
+        return redirect('/loginAdminPage?error=Invalid username or password!!!');
 
-        return View('login-error');
     }
 
 
@@ -54,8 +60,8 @@ class AdminController extends Controller
         }
     }
 
-    public function getAdminLoginPage(){
-        return View('mpage')->with('page','adminLogin');
+    public function getAdminLoginPage(Request $request){
+        return View('mpage')->with('page','adminLogin')->with('error',$request->query('error'));
     }
 
     public function getNewProductPage(){

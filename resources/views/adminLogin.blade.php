@@ -28,6 +28,9 @@
                                     <input type="password" id="frm-login-pass" name="password" placeholder="************">
                                 </fieldset>
 
+                                @if($error!=null)
+                                    <h3 style="color :red">{{$error}}</h3>
+                                @endif
 
                                 <input type="submit" class="btn btn-submit" value="Login" name="submit">
                             </form>

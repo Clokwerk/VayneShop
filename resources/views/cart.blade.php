@@ -145,10 +145,14 @@ $items = [];
 
 </main>
 <!--main area-->
+
+@if(count($items)!=0)
 <?php
 require_once __DIR__. '/../../../vendor/autoload.php';
 // This is your test secret API key.
 \Stripe\Stripe::setApiKey('');
+
+
 $stripeSession = \Stripe\Checkout\Session::create([
     'line_items' => $items,
     'mode' => 'payment',
@@ -171,3 +175,4 @@ $stripeSession = \Stripe\Checkout\Session::create([
         window.location.replace("<?php echo $stripeSession->url; ?>");
     });
 </script>
+@endif
