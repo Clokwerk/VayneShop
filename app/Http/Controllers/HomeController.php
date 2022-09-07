@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends  Controller
 {
@@ -43,6 +45,46 @@ class HomeController extends  Controller
         if(!Auth::guest()){
             $currentUser = Auth::user();
         }
-        return View('mpage')->with('user',$currentUser)->with('page','shop');;
+        $productIds=array();
+        $quantityIds=array();
+        $totalPrice=0;
+        $ownerId=$currentUser->id;
+
+
+
+        $basket = session()->get('basket');
+        $i=0;
+        foreach ($basket as $b)
+        {
+
+                $productIds[$i]= $b["id"];
+                $quantityIds[$i]= $b["item_qty"];
+                $totalPrice+=$b["price"] * $b["item_qty"];;
+
+                $i=$i+1;
+
+        }
+
+
+
+        DB::table('orders')->insert([
+            'ownerId' => $ownerId,
+            'productIds' => json_encode($productIds),
+            'quantityIds' => json_encode($quantityIds),
+            'totalPrice' => $totalPrice,
+
+        ]);
+
+        session()->remove('basket');
+
+        return redirect("/orderCustomer");
+
+
     }
+    public function profile()
+    {
+        return View("mpage")->with('page','profile');
+    }
+
+
 }

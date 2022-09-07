@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -34,6 +35,8 @@ Route::get('/checkout',[CheckoutController::class,'getCheckoutPage'])->middlewar
 Route::get('/about-us',[HomeController::class,'getAboutUsPage']);
 Route::get('/contact-us',[HomeController::class,'getContactUsPage']);
 Route::post('/comment',[\App\Http\Controllers\CommentController::class,'addComment']);
+Route::get('/messages',[\App\Http\Controllers\CommentController::class,'listComments']);
+Route::get('/delmessage/{id}',[\App\Http\Controllers\CommentController::class,'delete']);
 Route::get('/loginPage',[LoginController::class,'getLoginPage'])->name('loginPage');
 Route::get('/loginAdminPage',[AdminController::class,'getAdminLoginPage'])->name('adminLogin');
 Route::post('/loginCustom',[LoginController::class,'authenticate'])->name('loginCustom');
@@ -48,5 +51,16 @@ Route::post('/adminEditProduct',[AdminController::class,'editProduct'])->name('a
 Route::get('/registerPage',[LoginController::class,'getRegisterPage']);
 Route::post('/registerCustom',[LoginController::class,'register'])->name('registerCustom');
 Route::get('/productDetail/{id}',[ShopController::class,'getProductDetailPage']);
-Route::get('/primer',[HomeController::class,'primer']);
+Route::get('/search',[ShopController::class,'search']);
+Route::get('/afterPayment',[OrderController::class,'afterPayment'])->middleware(['auth']);
+Route::get('/ordersCustomer',[OrderController::class,'showC'])->middleware(['auth']);
+Route::get('/order/details/{id}',[OrderController::class,'detailsC'])->middleware(['auth']);
+
+Route::get('/ordersAdmin',[OrderController::class,'showA'])->middleware(['authAdmin']);
+Route::get('/order/detailsAdmin/{id}',[OrderController::class,'detailsA'])->middleware(['authAdmin']);
+Route::get('/order/accept/{id}',[OrderController::class,'accept'])->middleware(['authAdmin']);
+Route::get('/profile',[HomeController::class,'profile'])->middleware(['auth']);
+
+
+Route::get('/primer',[HomeController::class,'primer'])->middleware(['auth']);
 

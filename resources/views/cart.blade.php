@@ -20,6 +20,10 @@ $items = [];
 
             <div class="wrap-iten-in-cart">
                 <h3 class="box-title">Cart</h3>
+
+                @if($key!=null)
+                    <div style="color:red" class="text-center col-12"><b><h1>Payment failed !!!</h1></b> </div>
+                @endif
                 <ul class="products-cart">
                     <?php $total = 0 ?>
 
@@ -141,15 +145,19 @@ $items = [];
 
 </main>
 <!--main area-->
+
+@if(count($items)!=0)
 <?php
 require_once __DIR__. '/../../../vendor/autoload.php';
 // This is your test secret API key.
 \Stripe\Stripe::setApiKey('');
+
+
 $stripeSession = \Stripe\Checkout\Session::create([
     'line_items' => $items,
     'mode' => 'payment',
-    'success_url' => 'https://example.com/success',
-    'cancel_url' => 'https://example.com/cancel',
+    'success_url' => 'http://127.0.0.1:8000/afterPayment',
+    'cancel_url' => 'http://127.0.0.1:8000/cart?key=failed',
 ]);
 
 ?>
@@ -167,3 +175,4 @@ $stripeSession = \Stripe\Checkout\Session::create([
         window.location.replace("<?php echo $stripeSession->url; ?>");
     });
 </script>
+@endif

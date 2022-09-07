@@ -17,7 +17,7 @@
 
                 <div class="banner-shop">
                     <a href="#" class="banner-link">
-                        <figure><img style="height: 400px; width: 1164px;" src="https://www.beautyandmakeup.co/wp-content/uploads/2020/12/orgonic-cosmetics.jpg"  ></figure>
+                        <figure><img style="height: 330px; width: 1164px;" src="https://www.beautyandmakeup.co/wp-content/uploads/2020/12/orgonic-cosmetics.jpg"  ></figure>
                     </a>
                 </div>
 
@@ -39,8 +39,12 @@
                         <div class="sort-item product-per-page">
                             <select name="category" class="use-chosen" >
                                 <option value="" selected="selected"></option>
+                                <option value="">All</option>
                                 <option value="Face">Face</option>
                                 <option value="Body">Body</option>
+                                <option value="Hair">Hair</option>
+                                <option value="Around Eyes">Around Eyes</option>
+
                             </select>
 
                             <button type="submit" class="btn btn-danger" style="font-size: 10px; height: 30px; width: 60px; font-size: small">Search</button>
@@ -51,7 +55,13 @@
 
                     </div>
 
-                </div><!--end wrap shop control-->
+                </div>
+
+                @if($searched!='')
+                    <div><h3 class="text-center">Searched: <b>{{$searched}}</b></h3></div>}
+                @endif
+
+                <!--end wrap shop control-->
                 <br>
 
                 <div class="row">
@@ -118,15 +128,6 @@
 
                 </div>
 
-                <div class="wrap-pagination-info">
-                    <ul class="page-numbers">
-                        <li><span class="page-number-item current" >1</span></li>
-                        <li><a class="page-number-item" href="#" >2</a></li>
-                        <li><a class="page-number-item" href="#" >3</a></li>
-                        <li><a class="page-number-item next-link" href="#" >Next</a></li>
-                    </ul>
-                    <p class="result-count">Showing 1-8 of 12 result</p>
-                </div>
 
                 <br>
                 <br>
