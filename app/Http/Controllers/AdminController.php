@@ -31,7 +31,7 @@ class AdminController extends Controller
             Auth::login($user);
 
 
-            return redirect('/ordersAdmin')
+            return redirect('/ordersAdmin');
         }
 
         return redirect('/loginAdminPage?error=Invalid username or password!!!');
