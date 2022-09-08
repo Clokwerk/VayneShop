@@ -31,11 +31,7 @@
                                     <label for="frm-reg-email">Email Address*</label>
                                     <input type="email" id="frm-reg-email" name="email" placeholder="Email address">
                                 </fieldset>
-                                <fieldset class="wrap-functions ">
-                                    <label class="remember-field">
-                                        <input name="newletter" id="new-letter" value="forever" type="checkbox"><span>Sign Up for Newsletter</span>
-                                    </label>
-                                </fieldset>
+                               
                                 <fieldset class="wrap-title">
                                     <h3 class="form-title">Login Information</h3>
                                 </fieldset>
